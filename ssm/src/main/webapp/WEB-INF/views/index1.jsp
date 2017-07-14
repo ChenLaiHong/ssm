@@ -224,6 +224,10 @@
 				<footer>
 					<div>
 					&copy; 2016 Free HTML5. All Rights Reserved. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+					 当前用户:${uname}  
+    <c:if test="${uname!=null}">  
+        <a href="/ssm/loginout">退出</a>  
+    </c:if>  
 					</div>
 				</footer>
 			</div>

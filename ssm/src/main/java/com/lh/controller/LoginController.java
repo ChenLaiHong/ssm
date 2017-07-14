@@ -1,0 +1,80 @@
+package com.lh.controller;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.lh.bean.User;
+import com.lh.service.UserService;
+
+@Controller
+public class LoginController {
+
+	@Autowired
+	UserService userService;
+
+	// 去主页面
+	@RequestMapping("/toIndex")
+	public String toIndex() {
+		return "index1";
+	}
+
+	// 去注册页面
+	@RequestMapping("/toRegister")
+	public String toRegister() {
+		return "register";
+	}
+
+	// 去登录页面
+	@RequestMapping("/toLogin")
+	public String toLogin() {
+		return "login";
+	}
+
+	// 登陆页面的验证
+
+	@RequestMapping("/login")
+	public String Login(HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		// PrintWriter out = response.getWriter();
+		String uname = request.getParameter("uname");
+		String password = DigestUtils.md5Hex(request.getParameter("password"));
+		User user = userService.findUserByName(uname);
+
+		// if (user != null) {
+		if (user.getPassword().equals(password)
+				&& user.getUname().equals(uname)) {
+			// out.println(1);// 登录成功
+			// Cookie cookie = new Cookie("uname", uname);
+			// response.addCookie(cookie);
+
+			// session.setAttribute("uname", uname);
+
+			return "index1";
+		} else {
+			// out.print(2);// 用户或密码不正确
+			request.setAttribute("errorInfo", "用户名或密码错误！");
+			return "login";
+		}
+		/**
+		 * } else { // out.println(2); // 用户或密码不正确
+		 * request.setAttribute("errorInfo", "用户名或密码错误！"); return "login"; }
+		 */
+	}
+
+	// 退出操作
+	@RequestMapping(value = "/loginout")
+	public String loginout(HttpSession session) throws Exception {
+		// 清除Session
+		session.invalidate();
+		return "redirect:index1";
+	}
+
+}

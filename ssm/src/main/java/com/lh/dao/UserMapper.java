@@ -1,30 +1,36 @@
 package com.lh.dao;
 
-import com.lh.bean.User;
-import com.lh.bean.UserExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
+import com.lh.bean.User;
+import com.lh.bean.UserExample;
+
 public interface UserMapper {
-    long countByExample(UserExample example);
+	long countByExample(UserExample example);
 
-    int deleteByExample(UserExample example);
+	int deleteByExample(UserExample example);
 
-    int deleteByPrimaryKey(Integer uid);
+	int deleteByPrimaryKey(Integer uid);
 
-    int insert(User record);
+	int insert(User record);
 
-    int insertSelective(User record);
+	int insertSelective(User record);
 
-    List<User> selectByExample(UserExample example);
+	User findUserByName(String uname);
 
-    User selectByPrimaryKey(Integer uid);
+	List<User> selectByExample(UserExample example);
 
-    int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
+	User selectByPrimaryKey(Integer uid);
 
-    int updateByExample(@Param("record") User record, @Param("example") UserExample example);
+	int updateByExampleSelective(@Param("record") User record,
+			@Param("example") UserExample example);
 
-    int updateByPrimaryKeySelective(User record);
+	int updateByExample(@Param("record") User record,
+			@Param("example") UserExample example);
 
-    int updateByPrimaryKey(User record);
+	int updateByPrimaryKeySelective(User record);
+
+	int updateByPrimaryKey(User record);
 }

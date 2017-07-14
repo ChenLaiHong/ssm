@@ -53,31 +53,34 @@
 					
 
 					<!-- Start Sign In Form -->
-					<form action="#" class="fh5co-form animate-box" data-animate-effect="fadeInLeft">
+					<form  method="post" action="${APP_PATH}/login.do" onsubmit="return checkForm()" class="fh5co-form animate-box" data-animate-effect="fadeInLeft">
 						<h2>登录</h2>
 						<div class="form-group">
-							<label for="username" class="sr-only">用户名</label>
-							<input type="text" class="form-control" id="username" placeholder="Username" autocomplete="off">
+						   <font color="red" id="error">${errorInfo }</font>
+							<label for="uname" class="sr-only">用户名</label>
+							<input type="text" class="form-control" id="uname" name="uname" placeholder="请输入用户名" autocomplete="off">
+							
 						</div>
 						<div class="form-group">
 							<label for="password" class="sr-only">密码</label>
-							<input type="password" class="form-control" id="password" placeholder="Password" autocomplete="off">
-						</div>
+							<input type="password" class="form-control" id="password" name="password" placeholder="请输入用密码" autocomplete="off">
+							</div>
 						<div class="form-group">
 							<label for="remember">
-							<input class="Captcha" name="Captcha" maxlength="4" placeholder="请输入验证码！" type="Captcha">
+							<input class="Captcha" name="Captcha" maxlength="4" id="Captcha" placeholder="请输入验证码！" type="Captcha">
 							</label>
-							<img id="imgObj" src="/logintest/xuan/verifyCode"  width="160" height="40"></img>
+							<img id="imgObj" src="${APP_PATH}/xuan/verifyCode"  width="160" height="40"></img>
+							
 						</div>
 						<div class="form-group">
-							<p>没有注册? <a href="sign-up2.html">马上注册！</a> |</p>
+							<p>没有注册? <a href="toRegister">马上注册！</a> |</p>
 						</div>
 						<div class="form-group">
-							<input type="submit" value="登录" class="btn btn-primary">
+							<button onclick="login();">登录</button>
 						</div>
-					</form>
+					 </form>  
 					<!-- END Sign In Form -->
-
+					
 				</div>
 			</div>
 			<div class="row" style="padding-top: 60px; clear: both;">
@@ -87,6 +90,7 @@
 	
 	<!-- jQuery -->
 	<script src="${APP_PATH}/static/js/jquery.min.js"></script>
+
 	<!-- Bootstrap -->
 	<script src="${APP_PATH}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	<!-- Placeholder -->
@@ -97,4 +101,65 @@
 	<script src="${APP_PATH}/static/js/main.js"></script>
 
 	</body>
+	<script type="text/javascript">
+  	
+  	$('#imgObj').click(function() {
+		location.reload();
+	});
+/**
+		function login(){
+		var uname = $("#uname").val();
+		var password = $("#password").val();
+		console.log(uname);
+		console.log(password);
+		if(uname==""){
+			alert("用户名不可为空");
+			return false;
+		}
+		if(password==""){
+			alert("密码不可为空");
+			return false;
+		}
+		if(Captcha==""){
+			alert("验证码不能为空!");
+			return false;
+		}
+		$.ajax({
+			type:"post",
+			url:"${APP_PATH}/login",
+			data: {"uname":uname,"password":password},
+			dataType:"json",
+			success:function(data){
+				console.log(data);
+				if(data==1){
+					window.location.href="/toIndex";
+				}else if(data==2){
+					$("#error").html("用户或密码不正确");
+				}
+			}
+		});
+		
+	}
+	*/
+	function checkForm(){
+	var uname=$("#uname").val();
+	var password=$("#password").val();
+	var Captcha=$("#Captcha").val();
+	if(uname==null||uname==""){
+		$("#error").html("用户名不能为空！");
+		return false;
+	}
+	if(password==null||password==""){
+		$("#error").html("密码不能为空！");
+		return false;
+	}
+	if(Captcha==null||Captcha==""){
+		$("#error").html("验证码不能为空！");
+		return false;
+	}
+	return true;
+}
+	
+	
+  </script>
 </html>

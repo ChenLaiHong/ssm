@@ -113,7 +113,7 @@ public class RegisterController {
 		user.setPassword(DigestUtils.md5Hex(user.getPassword()));
 		userService.insertuser(user);
 		request.setAttribute("msg", "注册成功！");
-		return "login";
+		return "views/login.jsp";
 	}
 
 }

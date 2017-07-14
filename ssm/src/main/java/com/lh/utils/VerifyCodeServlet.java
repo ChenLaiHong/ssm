@@ -63,7 +63,7 @@ public class VerifyCodeServlet extends HttpServlet {
 		codeY = height - 4;
 	}
 
-	@RequestMapping(value = "xuan/verifyCode")
+	@RequestMapping(value = "/xuan/verifyCode")
 	public void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, java.io.IOException {
 		initxuan();

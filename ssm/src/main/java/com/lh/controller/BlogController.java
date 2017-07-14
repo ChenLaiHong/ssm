@@ -33,7 +33,7 @@ public class BlogController {
 		PageInfo page = new PageInfo(blogs, 5);
 		model.addAttribute("pageInfo", page);
 
-		return "register";
+		return "login";
 	}
 
 }

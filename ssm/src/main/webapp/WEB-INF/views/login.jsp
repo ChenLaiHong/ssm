@@ -106,41 +106,7 @@
   	$('#imgObj').click(function() {
 		location.reload();
 	});
-/**
-		function login(){
-		var uname = $("#uname").val();
-		var password = $("#password").val();
-		console.log(uname);
-		console.log(password);
-		if(uname==""){
-			alert("用户名不可为空");
-			return false;
-		}
-		if(password==""){
-			alert("密码不可为空");
-			return false;
-		}
-		if(Captcha==""){
-			alert("验证码不能为空!");
-			return false;
-		}
-		$.ajax({
-			type:"post",
-			url:"${APP_PATH}/login",
-			data: {"uname":uname,"password":password},
-			dataType:"json",
-			success:function(data){
-				console.log(data);
-				if(data==1){
-					window.location.href="/toIndex";
-				}else if(data==2){
-					$("#error").html("用户或密码不正确");
-				}
-			}
-		});
-		
-	}
-	*/
+
 	function checkForm(){
 	var uname=$("#uname").val();
 	var password=$("#password").val();

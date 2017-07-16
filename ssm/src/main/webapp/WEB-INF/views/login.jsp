@@ -52,7 +52,7 @@
 				<div class="col-md-4">
 					
 
-					<!-- Start Sign In Form -->
+				
 					<form  method="post" action="${APP_PATH}/login.do" onsubmit="return checkForm()" class="fh5co-form animate-box" data-animate-effect="fadeInLeft">
 						<h2>登录</h2>
 						<div class="form-group">
@@ -76,10 +76,10 @@
 							<p>没有注册? <a href="toRegister">马上注册！</a> |</p>
 						</div>
 						<div class="form-group">
-							<button onclick="login();">登录</button>
+							<input type="submit" value="登录" class="btn btn-primary" >
 						</div>
 					 </form>  
-					<!-- END Sign In Form -->
+					
 					
 				</div>
 			</div>

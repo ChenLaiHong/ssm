@@ -93,7 +93,7 @@
 							<p>已经注册? <a href="toLogin">登录</a></p>
 						</div>
 						<div class="form-group">
-							<input type="submit" value="注册" class="btn btn-primary" id="user_save">
+							<input type="submit" value="注册" class="btn btn-primary" >
 							<font color="red" id="xxx"></font>
 						</div>
 					</form>
@@ -168,7 +168,7 @@
 	});
 	$("#phone").keyup(function() {
 		var phone = $("#phone").val();
-		if (phone && /^1[3|4|5|8]\d{9}$/.test(phone)) {
+		if (phone && /^1[3|4|5|7|8]\d{9}$/.test(phone)) {
 			$("#btn").removeAttr("disabled");
 			$("#phonetishi").css("color", "green");
 			$("#phonetishi").html('√手机格式正确!');
@@ -239,7 +239,7 @@
 		$("#xxx").html('有验证没通过！');
 		return false;
 	}
-	
+/**	
 	$("#user_save").click(function(){
 		$.ajax({
 			url : '${APP_PATH}/zhucecaozuo',
@@ -248,7 +248,7 @@
 			
 		});
 	});
-	
+*/
 </script>
 </html>
 

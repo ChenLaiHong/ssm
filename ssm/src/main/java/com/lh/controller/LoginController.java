@@ -43,7 +43,7 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String Login(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
-		// PrintWriter out = response.getWriter();
+
 		String uname = request.getParameter("uname");
 		String password = DigestUtils.md5Hex(request.getParameter("password"));
 		User user = userService.findUserByName(uname);
@@ -51,15 +51,14 @@ public class LoginController {
 		// if (user != null) {
 		if (user.getPassword().equals(password)
 				&& user.getUname().equals(uname)) {
-			// out.println(1);// 登录成功
+
 			// Cookie cookie = new Cookie("uname", uname);
 			// response.addCookie(cookie);
-
-			// session.setAttribute("uname", uname);
+			request.getSession().setAttribute("currentUser", user);
 
 			return "index1";
 		} else {
-			// out.print(2);// 用户或密码不正确
+
 			request.setAttribute("errorInfo", "用户名或密码错误！");
 			return "login";
 		}

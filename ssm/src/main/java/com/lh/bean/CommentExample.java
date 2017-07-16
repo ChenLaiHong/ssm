@@ -235,6 +235,76 @@ public class CommentExample {
             return (Criteria) this;
         }
 
+        public Criteria andAuthorIsNull() {
+            addCriterion("author is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorIsNotNull() {
+            addCriterion("author is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorEqualTo(String value) {
+            addCriterion("author =", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorNotEqualTo(String value) {
+            addCriterion("author <>", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorGreaterThan(String value) {
+            addCriterion("author >", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorGreaterThanOrEqualTo(String value) {
+            addCriterion("author >=", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorLessThan(String value) {
+            addCriterion("author <", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorLessThanOrEqualTo(String value) {
+            addCriterion("author <=", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorLike(String value) {
+            addCriterion("author like", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorNotLike(String value) {
+            addCriterion("author not like", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorIn(List<String> values) {
+            addCriterion("author in", values, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorNotIn(List<String> values) {
+            addCriterion("author not in", values, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorBetween(String value1, String value2) {
+            addCriterion("author between", value1, value2, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorNotBetween(String value1, String value2) {
+            addCriterion("author not between", value1, value2, "author");
+            return (Criteria) this;
+        }
+
         public Criteria andCommentdateIsNull() {
             addCriterion("commentDate is null");
             return (Criteria) this;
@@ -292,6 +362,66 @@ public class CommentExample {
 
         public Criteria andCommentdateNotBetween(Date value1, Date value2) {
             addCriterion("commentDate not between", value1, value2, "commentdate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNull() {
+            addCriterion("state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNotNull() {
+            addCriterion("state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateEqualTo(Integer value) {
+            addCriterion("state =", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotEqualTo(Integer value) {
+            addCriterion("state <>", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThan(Integer value) {
+            addCriterion("state >", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("state >=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThan(Integer value) {
+            addCriterion("state <", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThanOrEqualTo(Integer value) {
+            addCriterion("state <=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIn(List<Integer> values) {
+            addCriterion("state in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotIn(List<Integer> values) {
+            addCriterion("state not in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateBetween(Integer value1, Integer value2) {
+            addCriterion("state between", value1, value2, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("state not between", value1, value2, "state");
             return (Criteria) this;
         }
 

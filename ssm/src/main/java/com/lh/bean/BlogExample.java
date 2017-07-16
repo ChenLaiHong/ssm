@@ -365,6 +365,76 @@ public class BlogExample {
             return (Criteria) this;
         }
 
+        public Criteria andAuthorIsNull() {
+            addCriterion("author is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorIsNotNull() {
+            addCriterion("author is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorEqualTo(String value) {
+            addCriterion("author =", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorNotEqualTo(String value) {
+            addCriterion("author <>", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorGreaterThan(String value) {
+            addCriterion("author >", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorGreaterThanOrEqualTo(String value) {
+            addCriterion("author >=", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorLessThan(String value) {
+            addCriterion("author <", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorLessThanOrEqualTo(String value) {
+            addCriterion("author <=", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorLike(String value) {
+            addCriterion("author like", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorNotLike(String value) {
+            addCriterion("author not like", value, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorIn(List<String> values) {
+            addCriterion("author in", values, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorNotIn(List<String> values) {
+            addCriterion("author not in", values, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorBetween(String value1, String value2) {
+            addCriterion("author between", value1, value2, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthorNotBetween(String value1, String value2) {
+            addCriterion("author not between", value1, value2, "author");
+            return (Criteria) this;
+        }
+
         public Criteria andClickhitIsNull() {
             addCriterion("clickHit is null");
             return (Criteria) this;
@@ -552,6 +622,76 @@ public class BlogExample {
 
         public Criteria andContentNotBetween(String value1, String value2) {
             addCriterion("content not between", value1, value2, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagIsNull() {
+            addCriterion("contentNoTag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagIsNotNull() {
+            addCriterion("contentNoTag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagEqualTo(String value) {
+            addCriterion("contentNoTag =", value, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagNotEqualTo(String value) {
+            addCriterion("contentNoTag <>", value, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagGreaterThan(String value) {
+            addCriterion("contentNoTag >", value, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagGreaterThanOrEqualTo(String value) {
+            addCriterion("contentNoTag >=", value, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagLessThan(String value) {
+            addCriterion("contentNoTag <", value, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagLessThanOrEqualTo(String value) {
+            addCriterion("contentNoTag <=", value, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagLike(String value) {
+            addCriterion("contentNoTag like", value, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagNotLike(String value) {
+            addCriterion("contentNoTag not like", value, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagIn(List<String> values) {
+            addCriterion("contentNoTag in", values, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagNotIn(List<String> values) {
+            addCriterion("contentNoTag not in", values, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagBetween(String value1, String value2) {
+            addCriterion("contentNoTag between", value1, value2, "contentnotag");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentnotagNotBetween(String value1, String value2) {
+            addCriterion("contentNoTag not between", value1, value2, "contentnotag");
             return (Criteria) this;
         }
 

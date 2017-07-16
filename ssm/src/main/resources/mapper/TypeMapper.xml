@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lh.dao.TypeMapper">
-  <resultMap id="BaseResultMap" type="com.lh.bean.Type">
+<mapper namespace="com.lh.crud.dao.TypeMapper">
+  <resultMap id="BaseResultMap" type="com.lh.crud.bean.Type">
     <id column="typeId" jdbcType="INTEGER" property="typeid" />
     <result column="typeName" jdbcType="VARCHAR" property="typename" />
+    <result column="describe" jdbcType="VARCHAR" property="describe" />
+    <result column="imageName" jdbcType="VARCHAR" property="imagename" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -64,9 +66,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    typeId, typeName
+    typeId, typeName, describe, imageName
   </sql>
-  <select id="selectByExample" parameterType="com.lh.bean.TypeExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lh.crud.bean.TypeExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -90,17 +92,19 @@
     delete from type
     where typeId = #{typeid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lh.bean.TypeExample">
+  <delete id="deleteByExample" parameterType="com.lh.crud.bean.TypeExample">
     delete from type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lh.bean.Type">
-    insert into type (typeId, typeName)
-    values (#{typeid,jdbcType=INTEGER}, #{typename,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.lh.crud.bean.Type">
+    insert into type (typeId, typeName, describe, 
+      imageName)
+    values (#{typeid,jdbcType=INTEGER}, #{typename,jdbcType=VARCHAR}, #{describe,jdbcType=VARCHAR}, 
+      #{imagename,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lh.bean.Type">
+  <insert id="insertSelective" parameterType="com.lh.crud.bean.Type">
     insert into type
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="typeid != null">
@@ -108,6 +112,12 @@
       </if>
       <if test="typename != null">
         typeName,
+      </if>
+      <if test="describe != null">
+        describe,
+      </if>
+      <if test="imagename != null">
+        imageName,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -117,9 +127,15 @@
       <if test="typename != null">
         #{typename,jdbcType=VARCHAR},
       </if>
+      <if test="describe != null">
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="imagename != null">
+        #{imagename,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lh.bean.TypeExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lh.crud.bean.TypeExample" resultType="java.lang.Long">
     select count(*) from type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -134,6 +150,12 @@
       <if test="record.typename != null">
         typeName = #{record.typename,jdbcType=VARCHAR},
       </if>
+      <if test="record.describe != null">
+        describe = #{record.describe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imagename != null">
+        imageName = #{record.imagename,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -142,23 +164,33 @@
   <update id="updateByExample" parameterType="map">
     update type
     set typeId = #{record.typeid,jdbcType=INTEGER},
-      typeName = #{record.typename,jdbcType=VARCHAR}
+      typeName = #{record.typename,jdbcType=VARCHAR},
+      describe = #{record.describe,jdbcType=VARCHAR},
+      imageName = #{record.imagename,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lh.bean.Type">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lh.crud.bean.Type">
     update type
     <set>
       <if test="typename != null">
         typeName = #{typename,jdbcType=VARCHAR},
       </if>
+      <if test="describe != null">
+        describe = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="imagename != null">
+        imageName = #{imagename,jdbcType=VARCHAR},
+      </if>
     </set>
     where typeId = #{typeid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lh.bean.Type">
+  <update id="updateByPrimaryKey" parameterType="com.lh.crud.bean.Type">
     update type
-    set typeName = #{typename,jdbcType=VARCHAR}
+    set typeName = #{typename,jdbcType=VARCHAR},
+      describe = #{describe,jdbcType=VARCHAR},
+      imageName = #{imagename,jdbcType=VARCHAR}
     where typeId = #{typeid,jdbcType=INTEGER}
   </update>
 </mapper>

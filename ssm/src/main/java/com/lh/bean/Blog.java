@@ -11,15 +11,17 @@ public class Blog {
 
 	private Date releasedate;
 
+	private String author;
+
 	private Integer clickhit;
 
 	private Integer replyhit;
 
 	private String content;
 
-	private Integer typeid;
+	private String contentnotag;
 
-	private Type type;
+	private Integer typeid;
 
 	public Blog() {
 		super();
@@ -27,24 +29,18 @@ public class Blog {
 	}
 
 	public Blog(Integer bid, String title, String summary, Date releasedate,
-			Integer clickhit, Integer replyhit, String content, Integer typeid) {
+			String author, Integer clickhit, Integer replyhit, String content,
+			String contentnotag) {
 		super();
 		this.bid = bid;
 		this.title = title;
 		this.summary = summary;
 		this.releasedate = releasedate;
+		this.author = author;
 		this.clickhit = clickhit;
 		this.replyhit = replyhit;
 		this.content = content;
-		this.typeid = typeid;
-	}
-
-	public Type getType() {
-		return type;
-	}
-
-	public void setType(Type type) {
-		this.type = type;
+		this.contentnotag = contentnotag;
 	}
 
 	public Integer getBid() {
@@ -79,6 +75,14 @@ public class Blog {
 		this.releasedate = releasedate;
 	}
 
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author == null ? null : author.trim();
+	}
+
 	public Integer getClickhit() {
 		return clickhit;
 	}
@@ -101,6 +105,14 @@ public class Blog {
 
 	public void setContent(String content) {
 		this.content = content == null ? null : content.trim();
+	}
+
+	public String getContentnotag() {
+		return contentnotag;
+	}
+
+	public void setContentnotag(String contentnotag) {
+		this.contentnotag = contentnotag == null ? null : contentnotag.trim();
 	}
 
 	public Integer getTypeid() {

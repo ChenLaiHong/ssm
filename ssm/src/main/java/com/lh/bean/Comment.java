@@ -3,43 +3,63 @@ package com.lh.bean;
 import java.util.Date;
 
 public class Comment {
-    private Integer cid;
+	private Integer cid;
 
-    private String content;
+	private String content;
 
-    private Date commentdate;
+	private String author;
 
-    private Integer bid;
+	private Date commentdate;
 
-    public Integer getCid() {
-        return cid;
-    }
+	private Integer state;
 
-    public void setCid(Integer cid) {
-        this.cid = cid;
-    }
+	private Integer bid;
 
-    public String getContent() {
-        return content;
-    }
+	public Integer getCid() {
+		return cid;
+	}
 
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
 
-    public Date getCommentdate() {
-        return commentdate;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public void setCommentdate(Date commentdate) {
-        this.commentdate = commentdate;
-    }
+	public void setContent(String content) {
+		this.content = content == null ? null : content.trim();
+	}
 
-    public Integer getBid() {
-        return bid;
-    }
+	public String getAuthor() {
+		return author;
+	}
 
-    public void setBid(Integer bid) {
-        this.bid = bid;
-    }
+	public void setAuthor(String author) {
+		this.author = author == null ? null : author.trim();
+	}
+
+	public Date getCommentdate() {
+		return commentdate;
+	}
+
+	public void setCommentdate(Date commentdate) {
+		this.commentdate = commentdate;
+	}
+
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+	public Integer getBid() {
+		return bid;
+	}
+
+	public void setBid(Integer bid) {
+		this.bid = bid;
+	}
 }

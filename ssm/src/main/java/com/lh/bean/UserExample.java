@@ -503,6 +503,216 @@ public class UserExample {
             addCriterion("email not between", value1, value2, "email");
             return (Criteria) this;
         }
+
+        public Criteria andSignIsNull() {
+            addCriterion("sign is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignIsNotNull() {
+            addCriterion("sign is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignEqualTo(String value) {
+            addCriterion("sign =", value, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignNotEqualTo(String value) {
+            addCriterion("sign <>", value, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignGreaterThan(String value) {
+            addCriterion("sign >", value, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignGreaterThanOrEqualTo(String value) {
+            addCriterion("sign >=", value, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignLessThan(String value) {
+            addCriterion("sign <", value, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignLessThanOrEqualTo(String value) {
+            addCriterion("sign <=", value, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignLike(String value) {
+            addCriterion("sign like", value, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignNotLike(String value) {
+            addCriterion("sign not like", value, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignIn(List<String> values) {
+            addCriterion("sign in", values, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignNotIn(List<String> values) {
+            addCriterion("sign not in", values, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignBetween(String value1, String value2) {
+            addCriterion("sign between", value1, value2, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignNotBetween(String value1, String value2) {
+            addCriterion("sign not between", value1, value2, "sign");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileIsNull() {
+            addCriterion("proFile is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileIsNotNull() {
+            addCriterion("proFile is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileEqualTo(String value) {
+            addCriterion("proFile =", value, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileNotEqualTo(String value) {
+            addCriterion("proFile <>", value, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileGreaterThan(String value) {
+            addCriterion("proFile >", value, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileGreaterThanOrEqualTo(String value) {
+            addCriterion("proFile >=", value, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileLessThan(String value) {
+            addCriterion("proFile <", value, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileLessThanOrEqualTo(String value) {
+            addCriterion("proFile <=", value, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileLike(String value) {
+            addCriterion("proFile like", value, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileNotLike(String value) {
+            addCriterion("proFile not like", value, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileIn(List<String> values) {
+            addCriterion("proFile in", values, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileNotIn(List<String> values) {
+            addCriterion("proFile not in", values, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileBetween(String value1, String value2) {
+            addCriterion("proFile between", value1, value2, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfileNotBetween(String value1, String value2) {
+            addCriterion("proFile not between", value1, value2, "profile");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameIsNull() {
+            addCriterion("imageName is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameIsNotNull() {
+            addCriterion("imageName is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameEqualTo(String value) {
+            addCriterion("imageName =", value, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameNotEqualTo(String value) {
+            addCriterion("imageName <>", value, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameGreaterThan(String value) {
+            addCriterion("imageName >", value, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameGreaterThanOrEqualTo(String value) {
+            addCriterion("imageName >=", value, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameLessThan(String value) {
+            addCriterion("imageName <", value, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameLessThanOrEqualTo(String value) {
+            addCriterion("imageName <=", value, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameLike(String value) {
+            addCriterion("imageName like", value, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameNotLike(String value) {
+            addCriterion("imageName not like", value, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameIn(List<String> values) {
+            addCriterion("imageName in", values, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameNotIn(List<String> values) {
+            addCriterion("imageName not in", values, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameBetween(String value1, String value2) {
+            addCriterion("imageName between", value1, value2, "imagename");
+            return (Criteria) this;
+        }
+
+        public Criteria andImagenameNotBetween(String value1, String value2) {
+            addCriterion("imageName not between", value1, value2, "imagename");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

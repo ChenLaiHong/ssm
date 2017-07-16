@@ -29,8 +29,8 @@ public class MapperTest {
 
 		System.out.println(typeMapper);
 
-		typeMapper.insertSelective(new Type(null, "开发类"));
-		typeMapper.insertSelective(new Type(null, "测试类"));
+		typeMapper.insertSelective(new Type(null, "开发", "研究", "密集"));
+		// typeMapper.insertSelective(new Type(null, "测试类"));
 		/**
 		 * BlogMapper mapper = sqlSession.getMapper(BlogMapper.class); for (int
 		 * i = 0; i < 100; i++) { String bid =

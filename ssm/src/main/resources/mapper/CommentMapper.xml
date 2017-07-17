@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lh.crud.dao.CommentMapper">
-  <resultMap id="BaseResultMap" type="com.lh.crud.bean.Comment">
+<mapper namespace="com.lh.dao.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.lh.bean.Comment">
     <id column="cid" jdbcType="INTEGER" property="cid" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="author" jdbcType="VARCHAR" property="author" />
-    <result column="commentDate" jdbcType="TIMESTAMP" property="commentdate" />
+    <result column="commentDate" jdbcType="TIMESTAMP" property="commentDate" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="bid" jdbcType="INTEGER" property="bid" />
   </resultMap>
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     cid, content, author, commentDate, state, bid
   </sql>
-  <select id="selectByExample" parameterType="com.lh.crud.bean.CommentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lh.bean.CommentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,21 +94,21 @@
     delete from comment
     where cid = #{cid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lh.crud.bean.CommentExample">
+  <delete id="deleteByExample" parameterType="com.lh.bean.CommentExample">
     delete from comment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lh.crud.bean.Comment">
+  <insert id="insert" parameterType="com.lh.bean.Comment">
     insert into comment (cid, content, author, 
       commentDate, state, bid
       )
     values (#{cid,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
-      #{commentdate,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER}
+      #{commentDate,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lh.crud.bean.Comment">
+  <insert id="insertSelective" parameterType="com.lh.bean.Comment">
     insert into comment
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cid != null">
@@ -120,7 +120,7 @@
       <if test="author != null">
         author,
       </if>
-      <if test="commentdate != null">
+      <if test="commentDate != null">
         commentDate,
       </if>
       <if test="state != null">
@@ -140,8 +140,8 @@
       <if test="author != null">
         #{author,jdbcType=VARCHAR},
       </if>
-      <if test="commentdate != null">
-        #{commentdate,jdbcType=TIMESTAMP},
+      <if test="commentDate != null">
+        #{commentDate,jdbcType=TIMESTAMP},
       </if>
       <if test="state != null">
         #{state,jdbcType=INTEGER},
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lh.crud.bean.CommentExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lh.bean.CommentExample" resultType="java.lang.Long">
     select count(*) from comment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -169,8 +169,8 @@
       <if test="record.author != null">
         author = #{record.author,jdbcType=VARCHAR},
       </if>
-      <if test="record.commentdate != null">
-        commentDate = #{record.commentdate,jdbcType=TIMESTAMP},
+      <if test="record.commentDate != null">
+        commentDate = #{record.commentDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.state != null">
         state = #{record.state,jdbcType=INTEGER},
@@ -188,14 +188,14 @@
     set cid = #{record.cid,jdbcType=INTEGER},
       content = #{record.content,jdbcType=VARCHAR},
       author = #{record.author,jdbcType=VARCHAR},
-      commentDate = #{record.commentdate,jdbcType=TIMESTAMP},
+      commentDate = #{record.commentDate,jdbcType=TIMESTAMP},
       state = #{record.state,jdbcType=INTEGER},
       bid = #{record.bid,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lh.crud.bean.Comment">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lh.bean.Comment">
     update comment
     <set>
       <if test="content != null">
@@ -204,8 +204,8 @@
       <if test="author != null">
         author = #{author,jdbcType=VARCHAR},
       </if>
-      <if test="commentdate != null">
-        commentDate = #{commentdate,jdbcType=TIMESTAMP},
+      <if test="commentDate != null">
+        commentDate = #{commentDate,jdbcType=TIMESTAMP},
       </if>
       <if test="state != null">
         state = #{state,jdbcType=INTEGER},
@@ -216,11 +216,11 @@
     </set>
     where cid = #{cid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lh.crud.bean.Comment">
+  <update id="updateByPrimaryKey" parameterType="com.lh.bean.Comment">
     update comment
     set content = #{content,jdbcType=VARCHAR},
       author = #{author,jdbcType=VARCHAR},
-      commentDate = #{commentdate,jdbcType=TIMESTAMP},
+      commentDate = #{commentDate,jdbcType=TIMESTAMP},
       state = #{state,jdbcType=INTEGER},
       bid = #{bid,jdbcType=INTEGER}
     where cid = #{cid,jdbcType=INTEGER}

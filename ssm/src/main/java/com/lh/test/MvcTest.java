@@ -61,7 +61,7 @@ public class MvcTest {
 			System.out.println("ID:" + blog.getBid() + "==>Title:"
 					+ blog.getTitle() + "==>summary" + blog.getSummary()
 					+ "==>releaseDate:"
-					+ dateFormater.format(blog.getReleasedate())
+					+ dateFormater.format(blog.getReleaseDate())
 					+ "==>content:" + blog.getContent());
 		}
 	}

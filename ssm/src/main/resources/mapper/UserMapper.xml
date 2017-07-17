@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lh.crud.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.lh.crud.bean.User">
+<mapper namespace="com.lh.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.lh.bean.User">
     <id column="uid" jdbcType="INTEGER" property="uid" />
     <result column="uname" jdbcType="VARCHAR" property="uname" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -9,8 +9,8 @@
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="sign" jdbcType="VARCHAR" property="sign" />
-    <result column="proFile" jdbcType="VARCHAR" property="profile" />
-    <result column="imageName" jdbcType="VARCHAR" property="imagename" />
+    <result column="proFile" jdbcType="VARCHAR" property="proFile" />
+    <result column="imageName" jdbcType="VARCHAR" property="imageName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -73,7 +73,7 @@
   <sql id="Base_Column_List">
     uid, uname, password, sex, phone, email, sign, proFile, imageName
   </sql>
-  <select id="selectByExample" parameterType="com.lh.crud.bean.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lh.bean.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -105,23 +105,23 @@
     delete from user
     where uid = #{uid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lh.crud.bean.UserExample">
+  <delete id="deleteByExample" parameterType="com.lh.bean.UserExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lh.crud.bean.User">
+  <insert id="insert" parameterType="com.lh.bean.User">
     insert into user (uid, uname, password, 
       sex, phone, email, 
       sign, proFile, imageName
       )
     values (#{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{sign,jdbcType=VARCHAR}, #{profile,jdbcType=VARCHAR}, #{imagename,jdbcType=VARCHAR}
+      #{sign,jdbcType=VARCHAR}, #{proFile,jdbcType=VARCHAR}, #{imageName,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lh.crud.bean.User">
+  <insert id="insertSelective" parameterType="com.lh.bean.User">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -145,10 +145,10 @@
       <if test="sign != null">
         sign,
       </if>
-      <if test="profile != null">
+      <if test="proFile != null">
         proFile,
       </if>
-      <if test="imagename != null">
+      <if test="imageName != null">
         imageName,
       </if>
     </trim>
@@ -174,15 +174,15 @@
       <if test="sign != null">
         #{sign,jdbcType=VARCHAR},
       </if>
-      <if test="profile != null">
-        #{profile,jdbcType=VARCHAR},
+      <if test="proFile != null">
+        #{proFile,jdbcType=VARCHAR},
       </if>
-      <if test="imagename != null">
-        #{imagename,jdbcType=VARCHAR},
+      <if test="imageName != null">
+        #{imageName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lh.crud.bean.UserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lh.bean.UserExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -212,11 +212,11 @@
       <if test="record.sign != null">
         sign = #{record.sign,jdbcType=VARCHAR},
       </if>
-      <if test="record.profile != null">
-        proFile = #{record.profile,jdbcType=VARCHAR},
+      <if test="record.proFile != null">
+        proFile = #{record.proFile,jdbcType=VARCHAR},
       </if>
-      <if test="record.imagename != null">
-        imageName = #{record.imagename,jdbcType=VARCHAR},
+      <if test="record.imageName != null">
+        imageName = #{record.imageName,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -232,13 +232,13 @@
       phone = #{record.phone,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
       sign = #{record.sign,jdbcType=VARCHAR},
-      proFile = #{record.profile,jdbcType=VARCHAR},
-      imageName = #{record.imagename,jdbcType=VARCHAR}
+      proFile = #{record.proFile,jdbcType=VARCHAR},
+      imageName = #{record.imageName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lh.crud.bean.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lh.bean.User">
     update user
     <set>
       <if test="uname != null">
@@ -259,16 +259,16 @@
       <if test="sign != null">
         sign = #{sign,jdbcType=VARCHAR},
       </if>
-      <if test="profile != null">
-        proFile = #{profile,jdbcType=VARCHAR},
+      <if test="proFile != null">
+        proFile = #{proFile,jdbcType=VARCHAR},
       </if>
-      <if test="imagename != null">
-        imageName = #{imagename,jdbcType=VARCHAR},
+      <if test="imageName != null">
+        imageName = #{imageName,jdbcType=VARCHAR},
       </if>
     </set>
     where uid = #{uid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lh.crud.bean.User">
+  <update id="updateByPrimaryKey" parameterType="com.lh.bean.User">
     update user
     set uname = #{uname,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
@@ -276,8 +276,8 @@
       phone = #{phone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       sign = #{sign,jdbcType=VARCHAR},
-      proFile = #{profile,jdbcType=VARCHAR},
-      imageName = #{imagename,jdbcType=VARCHAR}
+      proFile = #{proFile,jdbcType=VARCHAR},
+      imageName = #{imageName,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
 </mapper>

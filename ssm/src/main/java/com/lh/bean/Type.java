@@ -1,42 +1,42 @@
 package com.lh.bean;
 
 public class Type {
-	private Integer typeid;
+	private Integer typeId;
 
-	private String typename;
+	private String typeName;
 
 	private String describe;
 
-	private String imagename;
+	private String imageName;
 
 	public Type() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Type(Integer typeid, String typename, String describe,
-			String imagename) {
+	public Type(Integer typeId, String typeName, String describe,
+			String imageName) {
 		super();
-		this.typeid = typeid;
-		this.typename = typename;
+		this.typeId = typeId;
+		this.typeName = typeName;
 		this.describe = describe;
-		this.imagename = imagename;
+		this.imageName = imageName;
 	}
 
-	public Integer getTypeid() {
-		return typeid;
+	public Integer getTypeId() {
+		return typeId;
 	}
 
-	public void setTypeid(Integer typeid) {
-		this.typeid = typeid;
+	public void setTypeId(Integer typeId) {
+		this.typeId = typeId;
 	}
 
-	public String getTypename() {
-		return typename;
+	public String getTypeName() {
+		return typeName;
 	}
 
-	public void setTypename(String typename) {
-		this.typename = typename == null ? null : typename.trim();
+	public void setTypeName(String typeName) {
+		this.typeName = typeName == null ? null : typeName.trim();
 	}
 
 	public String getDescribe() {
@@ -47,11 +47,11 @@ public class Type {
 		this.describe = describe == null ? null : describe.trim();
 	}
 
-	public String getImagename() {
-		return imagename;
+	public String getImageName() {
+		return imageName;
 	}
 
-	public void setImagename(String imagename) {
-		this.imagename = imagename == null ? null : imagename.trim();
+	public void setImageName(String imageName) {
+		this.imageName = imageName == null ? null : imageName.trim();
 	}
 }

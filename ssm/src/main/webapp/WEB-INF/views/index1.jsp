@@ -65,13 +65,17 @@
 	
 	<div id="page">
 		<div id="fh5co-aside" style="background-image: url(static/images/image_1.jpg)">
+		   
 			<div class="overlay"></div>
 			<nav role="navigation">
 				<ul>
-					<li><a href="index.html"><i class="icon-home"></i></a></li>
+				<c:if test="${currentUser.uname !=null}"> 
+					<li><a href="toMain"><i class="icon-home"></i></a></li>
+				</c:if> 
 				</ul>
 			</nav>
 			<div class="featured">
+			
 				<span>Bio</span>
 				<h2>I'm John Doe </a></h2>
 			</div>
@@ -226,12 +230,12 @@
 					<div>
 					 
                       	<c:if test="${currentUser.uname ==null}">  
-        					<a href="/ssm//toLogin">登录</a>  
-        					<a href="/ssm/toRegister">注册</a>  
+        					<a href="toLogin">登录</a>  
+        					<a href="toRegister">注册</a>  
    					 	</c:if> 
    					 	 <c:if test="${currentUser.uname !=null}">  
         					 当前用户:${currentUser.uname}   
-        					<a href="/ssm/loginout">退出</a>  
+        					<a href="loginout">退出</a>  
    					 	</c:if> 
 					</div>
 				</footer>

@@ -1,43 +1,43 @@
 package com.lh.bean;
 
 public class Link {
-    private Integer id;
+	private Integer id;
 
-    private String linkname;
+	private String linkName;
 
-    private String linkurl;
+	private String linkUrl;
 
-    private Integer orderno;
+	private Integer orderNo;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getLinkname() {
-        return linkname;
-    }
+	public String getLinkName() {
+		return linkName;
+	}
 
-    public void setLinkname(String linkname) {
-        this.linkname = linkname == null ? null : linkname.trim();
-    }
+	public void setLinkName(String linkName) {
+		this.linkName = linkName == null ? null : linkName.trim();
+	}
 
-    public String getLinkurl() {
-        return linkurl;
-    }
+	public String getLinkUrl() {
+		return linkUrl;
+	}
 
-    public void setLinkurl(String linkurl) {
-        this.linkurl = linkurl == null ? null : linkurl.trim();
-    }
+	public void setLinkUrl(String linkUrl) {
+		this.linkUrl = linkUrl == null ? null : linkUrl.trim();
+	}
 
-    public Integer getOrderno() {
-        return orderno;
-    }
+	public Integer getOrderNo() {
+		return orderNo;
+	}
 
-    public void setOrderno(Integer orderno) {
-        this.orderno = orderno;
-    }
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
+	}
 }

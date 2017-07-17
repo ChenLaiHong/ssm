@@ -20,24 +20,6 @@ public class LoginController {
 	@Autowired
 	UserService userService;
 
-	// 去主页面
-	@RequestMapping("/toIndex")
-	public String toIndex() {
-		return "index1";
-	}
-
-	// 去注册页面
-	@RequestMapping("/toRegister")
-	public String toRegister() {
-		return "register";
-	}
-
-	// 去登录页面
-	@RequestMapping("/toLogin")
-	public String toLogin() {
-		return "login";
-	}
-
 	// 登陆页面的验证
 
 	@RequestMapping("/login")
@@ -73,7 +55,7 @@ public class LoginController {
 	public String loginout(HttpSession session) throws Exception {
 		// 清除Session
 		session.invalidate();
-		return "redirect:index1";
+		return "index1";
 	}
 
 }

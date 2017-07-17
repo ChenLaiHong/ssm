@@ -9,38 +9,38 @@ public class Blog {
 
 	private String summary;
 
-	private Date releasedate;
+	private Date releaseDate;
 
 	private String author;
 
-	private Integer clickhit;
+	private Integer clickHit;
 
-	private Integer replyhit;
+	private Integer replyHit;
 
 	private String content;
 
-	private String contentnotag;
+	private String contentNoTag;
 
-	private Integer typeid;
+	private Integer typeId;
 
 	public Blog() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Blog(Integer bid, String title, String summary, Date releasedate,
-			String author, Integer clickhit, Integer replyhit, String content,
-			String contentnotag) {
+	public Blog(Integer bid, String title, String summary, Date releaseDate,
+			String author, Integer clickHit, Integer replyHit, String content,
+			String contentNoTag) {
 		super();
 		this.bid = bid;
 		this.title = title;
 		this.summary = summary;
-		this.releasedate = releasedate;
+		this.releaseDate = releaseDate;
 		this.author = author;
-		this.clickhit = clickhit;
-		this.replyhit = replyhit;
+		this.clickHit = clickHit;
+		this.replyHit = replyHit;
 		this.content = content;
-		this.contentnotag = contentnotag;
+		this.contentNoTag = contentNoTag;
 	}
 
 	public Integer getBid() {
@@ -67,12 +67,12 @@ public class Blog {
 		this.summary = summary == null ? null : summary.trim();
 	}
 
-	public Date getReleasedate() {
-		return releasedate;
+	public Date getReleaseDate() {
+		return releaseDate;
 	}
 
-	public void setReleasedate(Date releasedate) {
-		this.releasedate = releasedate;
+	public void setReleaseDate(Date releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 
 	public String getAuthor() {
@@ -83,20 +83,20 @@ public class Blog {
 		this.author = author == null ? null : author.trim();
 	}
 
-	public Integer getClickhit() {
-		return clickhit;
+	public Integer getClickHit() {
+		return clickHit;
 	}
 
-	public void setClickhit(Integer clickhit) {
-		this.clickhit = clickhit;
+	public void setClickHit(Integer clickHit) {
+		this.clickHit = clickHit;
 	}
 
-	public Integer getReplyhit() {
-		return replyhit;
+	public Integer getReplyHit() {
+		return replyHit;
 	}
 
-	public void setReplyhit(Integer replyhit) {
-		this.replyhit = replyhit;
+	public void setReplyHit(Integer replyHit) {
+		this.replyHit = replyHit;
 	}
 
 	public String getContent() {
@@ -107,19 +107,19 @@ public class Blog {
 		this.content = content == null ? null : content.trim();
 	}
 
-	public String getContentnotag() {
-		return contentnotag;
+	public String getContentNoTag() {
+		return contentNoTag;
 	}
 
-	public void setContentnotag(String contentnotag) {
-		this.contentnotag = contentnotag == null ? null : contentnotag.trim();
+	public void setContentNoTag(String contentNoTag) {
+		this.contentNoTag = contentNoTag == null ? null : contentNoTag.trim();
 	}
 
-	public Integer getTypeid() {
-		return typeid;
+	public Integer getTypeId() {
+		return typeId;
 	}
 
-	public void setTypeid(Integer typeid) {
-		this.typeid = typeid;
+	public void setTypeId(Integer typeId) {
+		this.typeId = typeId;
 	}
 }

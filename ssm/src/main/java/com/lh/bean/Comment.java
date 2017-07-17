@@ -9,7 +9,7 @@ public class Comment {
 
 	private String author;
 
-	private Date commentdate;
+	private Date commentDate;
 
 	private Integer state;
 
@@ -39,12 +39,12 @@ public class Comment {
 		this.author = author == null ? null : author.trim();
 	}
 
-	public Date getCommentdate() {
-		return commentdate;
+	public Date getCommentDate() {
+		return commentDate;
 	}
 
-	public void setCommentdate(Date commentdate) {
-		this.commentdate = commentdate;
+	public void setCommentDate(Date commentDate) {
+		this.commentDate = commentDate;
 	}
 
 	public Integer getState() {

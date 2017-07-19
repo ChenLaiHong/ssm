@@ -32,7 +32,7 @@
 				<img src="${APP_PATH}/static/images/moren.png"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
 			</c:if>
 			<c:if test="${currentUser.imageName !=null}"> 
-				<img src="${APP_PATH}/static/images/${currentUser.imageName }"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
+				<img src="${APP_PATH}/static/userImages/${currentUser.imageName }"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
 			</c:if></div>
       <nav>
         <ul class="sf-menu" id="nav">

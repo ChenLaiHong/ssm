@@ -61,15 +61,16 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
 	</aop:config>
 	
+
 	<!-- 配置事务增强，事务如何切入 -->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 		<!-- 所有方法都是事务方法 -->
 			<tx:method name="*"/>
 			<!-- 以get开始的所有方法 -->
-			<tx:method name="get*" read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
+	
 	
 	
 </beans>

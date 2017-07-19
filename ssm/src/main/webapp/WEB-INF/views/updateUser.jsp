@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
 <html>
 
@@ -25,19 +25,18 @@
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
 <script type="text/javascript" charset="UTF-8" src="${APP_PATH}/static/ueditor/lang/zh-cn/zh-cn.js"></script>
   <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/style2.css" />
-  <!-- modernizr enables HTML5 elements and feature detects -->
+ 
   <script type="text/javascript" src="${APP_PATH}/static/js/modernizr-1.5.min.js"></script>
   
   <script type="text/javascript">
 	
 	function submitData(){
-		var nickName=$("#nickName").val();
+		
 		var sign=$("#sign").val();
 		var proFile=UE.getEditor('proFile').getContent();
 		
-		if(nickName==null || nickName==''){
-			alert("请输入昵称！");
-		}else if(sign==null || sign==''){
+		
+		if(sign==null || sign==''){
 			alert("请输入个性签名！");
 		}else if(proFile==null || proFile==''){
 			alert("请输入个性简介！");
@@ -57,7 +56,7 @@
     <header>
       <div id="logo">
         <div id="logo_text">
-          <!-- class="logo_colour", allows you to change the colour of the text -->
+        
           <h1><a href="index.html">个人<span class="logo_colour">_博客_中心</span></a></h1>
           <h2>${currentUser.sign}</h2>
         </div>
@@ -66,7 +65,7 @@
 				<img src="${APP_PATH}/static/images/moren.png"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
 			</c:if>
 			<c:if test="${currentUser.imageName !=null}"> 
-				<img src="${APP_PATH}/static/images/${currentUser.imageName }"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
+				<img src="${APP_PATH}/static/userImages/${currentUser.imageName }"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
 			</c:if></div>
       <nav>
         <ul class="sf-menu" id="nav">
@@ -91,19 +90,16 @@
     <div id="site_content">
      
       
-        <form id="form1" action="${APP_PATH}/admin/blogger/save.do" method="post" enctype="multipart/form-data">
+        <form id="form1" action="${APP_PATH}/user/save.do" method="post" enctype="multipart/form-data">
 	 	<table cellspacing="20px">
 	   		<tr>
 	   			<td width="80px">用户名：</td>
 	   			<td>
-	   				<input type="hidden" id="id" name="id" value="${currentUser.uid }"/>
-	   				<input type="text" id="userName" name="userName" style="width: 200px;" value="${currentUser.uname }" readonly="readonly"/>
+	   				<input type="hidden" id="uid" name="uid" value="${currentUser.uid }"/>
+	   				<input type="text" id="uname" name="uname" style="width: 200px;" value="${currentUser.uname }" readonly="readonly"/>
 	   			</td>
 	   		</tr>
-	   		<tr>
-	   			<td>昵称：</td>
-	   			<td><input type="text" id="nickName" name="nickName"  style="width: 200px;"/></td>
-	   		</tr>
+	   		
 	   		<tr>
 	   			<td>个性签名：</td>
 	   			<td><input type="text" id="sign" name="sign" value="${currentUser.sign }" style="width: 400px;"/></td>
@@ -138,7 +134,9 @@
   <script type="text/javascript" src="${APP_PATH}/static/js/jquery.js"></script>
   <script type="text/javascript" src="${APP_PATH}/static/js/jquery.easing-sooper.js"></script>
   <script type="text/javascript" src="${APP_PATH}/static/js/jquery.sooperfish.js"></script>
+    <!--
   <script type="text/javascript" src="${APP_PATH}/static/js/image_fade.js"></script>
+  -->
   <script type="text/javascript">
     $(document).ready(function() {
       $('ul.sf-menu').sooperfish();
@@ -151,16 +149,15 @@
 
     ue.addListener("ready",function(){
         //通过ajax请求数据
-        UE.ajax.request("${APP_PATH}/admin/blogger/find.do",
+        UE.ajax.request("${APP_PATH}/user/find.do",
             {
                 method:"post",
                 async : false,  
                 data:{},
                 onsuccess:function(result){
                 	result = eval("(" + result.responseText + ")");  
-                	$("#nickName").val(result.nickName);
                 	$("#sign").val(result.sign);
-                	$("#nickName").val(result.nickName);
+                	$("#imageFile").val(result.imageFile);
        				UE.getEditor('proFile').setContent(result.proFile);
                 }
             }

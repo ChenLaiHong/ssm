@@ -59,4 +59,13 @@ public class UserService {
 		return count == 0;
 	}
 
+	public int update(User user) {
+
+		return userMapper.updateByPrimaryKeySelective(user);
+	}
+
+	public User find(Integer uid) {
+		return userMapper.selectByPrimaryKey(uid);
+	}
+
 }

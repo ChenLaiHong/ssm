@@ -77,7 +77,7 @@
 			<div class="featured">
 			
 				<span>Bio</span>
-				<h2>I'm John Doe </a></h2>
+				<h2>I'm John Doe </h2>
 			</div>
 		</div>
 		<div id="fh5co-main-content">

@@ -53,54 +53,21 @@
 
 <body>
   <div id="main">
-    <header>
-      <div id="logo">
-        <div id="logo_text">
-        
-          <h1><a href="index.html">个人<span class="logo_colour">_博客_中心</span></a></h1>
-          <h2>${currentUser.sign}</h2>
-        </div>
-      </div>
-      <div><c:if test="${currentUser.imageName ==null}"> 
-				<img src="${APP_PATH}/static/images/moren.png"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
-			</c:if>
-			<c:if test="${currentUser.imageName !=null}"> 
-				<img src="${APP_PATH}/static/userImages/${currentUser.imageName }"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
-			</c:if></div>
-      <nav>
-        <ul class="sf-menu" id="nav">
-          <li class="selected"><a href="index.html">博客列表</a></li>
-          <li><a href="toLogin">写博客</a></li>
-          <li><a href="portfolio.html">评论管理</a></li>
-          <li><a href="blog.html">Blog</a></li>
-           <li><a href="contact.php">源码下载</a></li>
-          <li><a href="#">设置</a>
-            <ul>
-              <li><a href="#">修改个人信息</a></li>
-              <li><a href="#">修改密码</a> </li>
-              <li><a href="#">安全退出</a> </li>
-             
-            </ul>
-          </li>
-         
-        </ul>
-      </nav>
-    </header>
-	<div class="inner_copyright">Collect from <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a></div>
+  
+      <jsp:include page="/common/menu.jsp"/>   
+	
     <div id="site_content">
      
-      
         <form id="form1" action="${APP_PATH}/user/save.do" method="post" enctype="multipart/form-data">
 	 	<table cellspacing="20px">
 	   		<tr>
 	   			<td width="80px">用户名：</td>
 	   			<td>
-	   				<input type="hidden" id="uid" name="uid" value="${currentUser.uid }"/>
+	   				  <input type="hidden" id="uid" name="uid" value="${currentUser.uid }"/>
 	   				<input type="text" id="uname" name="uname" style="width: 200px;" value="${currentUser.uname }" readonly="readonly"/>
 	   			</td>
 	   		</tr>
 	   		
-	   		<tr>
 	   			<td>个性签名：</td>
 	   			<td><input type="text" id="sign" name="sign" value="${currentUser.sign }" style="width: 400px;"/></td>
 	   		</tr>
@@ -125,9 +92,9 @@
    	</form>
      
     </div>
-    <footer>
-      <p>Copyright &copy; photo_style_two | <a href="http://www.cssmoban.com">网页模板</a></p>
-    </footer>
+    
+     <jsp:include page="/common/foot.jsp"/>   
+     
   </div>
   <p>&nbsp;</p>
   <!-- javascript at the bottom for fast page loading -->
@@ -149,7 +116,7 @@
 
     ue.addListener("ready",function(){
         //通过ajax请求数据
-        UE.ajax.request("${APP_PATH}/user/find.do",
+        UE.ajax.request("${APP_PATH}/user/find/${currentUser.uid }.do",
             {
                 method:"post",
                 async : false,  

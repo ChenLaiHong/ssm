@@ -59,9 +59,9 @@ public class UserService {
 		return count == 0;
 	}
 
-	public int update(User user) {
+	public void updateByPrimaryKeySelective(User user) {
 
-		return userMapper.updateByPrimaryKeySelective(user);
+		userMapper.updateByPrimaryKeySelective(user);
 	}
 
 	public User find(Integer uid) {

@@ -9,6 +9,7 @@ import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,17 +39,16 @@ public class UserController {
 			user.setImageName(imageName);
 		}
 
-		int resultTotal = userService.update(user);
-		StringBuffer result = new StringBuffer();
-		System.out.println("查询结果" + resultTotal);
-		if (resultTotal != 0) {
-			result.append("<script language='javascript'>alert('修改成功！');</script>");
-		} else {
-			result.append("<script language='javascript'>alert('修改失败！');</script>");
-		}
-		ResponseUtil.write(response, result);
-
-		return null;
+		userService.updateByPrimaryKeySelective(user);
+		/*
+		 * StringBuffer result = new StringBuffer(); System.out.println("查询结果" +
+		 * resultTotal); if (resultTotal > 0) {
+		 * result.append("<script language='javascript'>alert('修改成功！');</script>"
+		 * ); } else {
+		 * result.append("<script language='javascript'>alert('修改失败！');</script>"
+		 * ); } ResponseUtil.write(response, result);
+		 */
+		return "redirect:/toMain";
 	}
 
 	/**
@@ -58,8 +58,8 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/find")
-	public String find(@RequestParam("uid") Integer uid,
+	@RequestMapping("/find/{uid}")
+	public String find(@PathVariable("uid") Integer uid,
 			HttpServletResponse response) throws Exception {
 		User user = userService.find(uid);
 		JSONObject jsonObject = JSONObject.fromObject(user);

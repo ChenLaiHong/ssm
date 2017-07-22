@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.PageInfo;
 import com.lh.bean.Type;
+import com.lh.service.BlogService;
 import com.lh.service.BlogTypeService;
 import com.lh.utils.DateUtil;
 import com.lh.utils.ResponseUtil;
@@ -28,6 +29,8 @@ import com.lh.utils.ResponseUtil;
 public class BlogTypeAdminController {
 	@Autowired
 	BlogTypeService blogTypeService;
+	@Autowired
+	private BlogService blogService;
 
 	// 列表展示
 	@RequestMapping("/list")
@@ -40,7 +43,7 @@ public class BlogTypeAdminController {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", 1);
-		map.put("size", 5);
+		map.put("size", 10);
 		List<Type> blogTypeList = blogTypeService.list(map);
 		PageInfo page = new PageInfo(blogTypeList);
 		Long total = page.getTotal();
@@ -88,6 +91,24 @@ public class BlogTypeAdminController {
 			result.put("success", false);
 		}
 		ResponseUtil.write(response, result);
+		return null;
+	}
+
+	@RequestMapping("/delete")
+	public String delete(@RequestParam("ids") String ids,
+			HttpServletResponse response) throws Exception {
+		String idsStr[] = ids.split(",");
+		JSONObject result = new JSONObject();
+		for (int i = 0; i < idsStr.length; i++) {
+			if (blogService.getBlogByTypeId(Integer.parseInt(idsStr[i])) > 0) {
+				result.put("exist", "博客类别下有博客，不能删除！");
+			} else {
+				blogTypeService.delete(Integer.parseInt(idsStr[i]));
+			}
+		}
+		result.put("success", true);
+		ResponseUtil.write(response, result);
+
 		return null;
 	}
 

@@ -96,7 +96,10 @@
     from blog
     where bid = #{bid,jdbcType=INTEGER}
   </select>
-  
+  <!-- 根据博客类型 -->
+  <select id="getBlogByTypeId" parameterType="Integer" resultType="Integer">
+		select count(*) from blog where typeId=#{typeId}
+	</select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from blog

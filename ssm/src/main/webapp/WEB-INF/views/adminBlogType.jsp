@@ -33,7 +33,7 @@
 		 }
 		 var strIds=[];
 		 for(var i=0;i<selectedRows.length;i++){
-			 strIds.push(selectedRows[i].id);
+			 strIds.push(selectedRows[i].typeId);
 		 }
 		 var ids=strIds.join(",");
 		 $.messager.confirm("系统提示","您确定要删除这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
@@ -68,7 +68,7 @@
 		 var row=selectedRows[0];
 		 $("#dlg").dialog("open").dialog("setTitle","编辑博客类别信息");
 		 $("#fm").form("load",row);
-		 url="${APP_PATH}/admin/blogType/save.do?id="+row.id;
+		 url="${APP_PATH}/admin/blogType/save.do?typeId="+row.typeId;
 	 }
 	
 	function saveBlogType(){
@@ -94,6 +94,8 @@
 	 
 	function resetValue(){
 		 $("#typeName").val("");
+		 $("#describes").val("");
+		  $("#imageFile").val("");
 		 $("#orderNo").val("");
 	 }
 	

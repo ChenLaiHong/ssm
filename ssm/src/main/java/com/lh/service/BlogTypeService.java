@@ -32,4 +32,10 @@ public class BlogTypeService {
 
 		return typeMapper.list(map);
 	}
+
+	// 删除类型
+	public int delete(int typeId) {
+		return typeMapper.deleteByPrimaryKey(typeId);
+
+	}
 }

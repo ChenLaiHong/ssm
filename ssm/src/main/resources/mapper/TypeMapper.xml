@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.lh.bean.Type">
     <id column="typeId" jdbcType="INTEGER" property="typeId" />
     <result column="typeName" jdbcType="VARCHAR" property="typeName" />
-    <result column="describe" jdbcType="VARCHAR" property="describe" />
+    <result column="describes" jdbcType="VARCHAR" property="describes" />
     <result column="imageName" jdbcType="VARCHAR" property="imageName" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -66,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    typeId, typeName, describe, imageName
+    typeId, typeName, describes, imageName
   </sql>
   <select id="selectByExample" parameterType="com.lh.bean.TypeExample" resultMap="BaseResultMap">
     select
@@ -88,6 +88,14 @@
     from type
     where typeId = #{typeId,jdbcType=INTEGER}
   </select>
+  
+  <!-- 分页查询 -->
+  <select id="list" parameterType="Map" resultMap="BaseResultMap">
+		select * from type
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from type
     where typeId = #{typeId,jdbcType=INTEGER}
@@ -99,10 +107,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.lh.bean.Type">
-    insert into type (typeId, typeName, describe, 
-      imageName)
-    values (#{typeId,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR}, #{describe,jdbcType=VARCHAR}, 
-      #{imageName,jdbcType=VARCHAR})
+    insert into type (typeId, typeName, describes,
+      imageName
+      )
+    values (#{typeId,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR}, #{describes,jdbcType=VARCHAR},
+      #{imageName,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.lh.bean.Type">
     insert into type
@@ -113,8 +123,8 @@
       <if test="typeName != null">
         typeName,
       </if>
-      <if test="describe != null">
-        describe,
+      <if test="describes != null">
+        describes,
       </if>
       <if test="imageName != null">
         imageName,
@@ -127,8 +137,8 @@
       <if test="typeName != null">
         #{typeName,jdbcType=VARCHAR},
       </if>
-      <if test="describe != null">
-        #{describe,jdbcType=VARCHAR},
+      <if test="describes != null">
+        #{describes,jdbcType=VARCHAR},
       </if>
       <if test="imageName != null">
         #{imageName,jdbcType=VARCHAR},
@@ -150,8 +160,8 @@
       <if test="record.typeName != null">
         typeName = #{record.typeName,jdbcType=VARCHAR},
       </if>
-      <if test="record.describe != null">
-        describe = #{record.describe,jdbcType=VARCHAR},
+      <if test="record.describes != null">
+        describes = #{record.describes,jdbcType=VARCHAR},
       </if>
       <if test="record.imageName != null">
         imageName = #{record.imageName,jdbcType=VARCHAR},
@@ -165,7 +175,7 @@
     update type
     set typeId = #{record.typeId,jdbcType=INTEGER},
       typeName = #{record.typeName,jdbcType=VARCHAR},
-      describe = #{record.describe,jdbcType=VARCHAR},
+      describes = #{record.describes,jdbcType=VARCHAR},
       imageName = #{record.imageName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -177,8 +187,8 @@
       <if test="typeName != null">
         typeName = #{typeName,jdbcType=VARCHAR},
       </if>
-      <if test="describe != null">
-        describe = #{describe,jdbcType=VARCHAR},
+      <if test="describes != null">
+        describes = #{describes,jdbcType=VARCHAR},
       </if>
       <if test="imageName != null">
         imageName = #{imageName,jdbcType=VARCHAR},
@@ -189,7 +199,7 @@
   <update id="updateByPrimaryKey" parameterType="com.lh.bean.Type">
     update type
     set typeName = #{typeName,jdbcType=VARCHAR},
-      describe = #{describe,jdbcType=VARCHAR},
+      describes = #{describes,jdbcType=VARCHAR},
       imageName = #{imageName,jdbcType=VARCHAR}
     where typeId = #{typeId,jdbcType=INTEGER}
   </update>

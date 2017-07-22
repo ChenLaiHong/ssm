@@ -1,30 +1,43 @@
 package com.lh.dao;
 
-import com.lh.bean.Type;
-import com.lh.bean.TypeExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
+import com.lh.bean.Type;
+import com.lh.bean.TypeExample;
+
 public interface TypeMapper {
-    long countByExample(TypeExample example);
+	long countByExample(TypeExample example);
 
-    int deleteByExample(TypeExample example);
+	int deleteByExample(TypeExample example);
 
-    int deleteByPrimaryKey(Integer typeid);
+	int deleteByPrimaryKey(Integer typeid);
 
-    int insert(Type record);
+	int insert(Type record);
 
-    int insertSelective(Type record);
+	int insertSelective(Type record);
 
-    List<Type> selectByExample(TypeExample example);
+	List<Type> selectByExample(TypeExample example);
 
-    Type selectByPrimaryKey(Integer typeid);
+	/**
+	 * 分页查询博客类别信息
+	 * 
+	 * @param map
+	 * @return
+	 */
+	List<Type> list(Map<String, Object> map);
 
-    int updateByExampleSelective(@Param("record") Type record, @Param("example") TypeExample example);
+	Type selectByPrimaryKey(Integer typeid);
 
-    int updateByExample(@Param("record") Type record, @Param("example") TypeExample example);
+	int updateByExampleSelective(@Param("record") Type record,
+			@Param("example") TypeExample example);
 
-    int updateByPrimaryKeySelective(Type record);
+	int updateByExample(@Param("record") Type record,
+			@Param("example") TypeExample example);
 
-    int updateByPrimaryKey(Type record);
+	int updateByPrimaryKeySelective(Type record);
+
+	int updateByPrimaryKey(Type record);
 }

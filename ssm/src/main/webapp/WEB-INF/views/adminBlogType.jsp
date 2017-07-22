@@ -101,6 +101,14 @@
 		 $("#dlg").dialog("close");
 		 resetValue();
 	 }
+	 
+	 function formatImg(val,row){
+	 	if(val){
+	 		return '<img src=static/userImages/'+val+' style=width:80px;height:50px;>'
+	 	}else{
+	 		return '<img src='+APP_PATH+'/static/userImages/moren.png style=width:80px;height:50px;>'
+	 	}
+	 }
 </script>
 </head>
 <body style="margin: 1px">
@@ -112,9 +120,11 @@
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
-				<th field="id" width="20" align="center">编号</th>
-				<th field="typeName" width="100" align="center">博客类型名称</th>
-				<th field="orderNo" width="100" align="center">排序序号</th>
+				<th field="typeId" width="20" align="center">编号</th>
+				<th field="typeName" width="20" align="center">博客类型名称</th>
+				<th field="describes" width="50" align="center">类别描述</th>
+				<th field="imageName" width="20" align="center" data-options="formatter:formatImg">图片</th>
+				<th field="orderNo" width="10" align="center">排序序号</th>
 			</tr>
 		</thead>
 	</table>
@@ -133,11 +143,23 @@
 		style="width:500px;height:180px;padding: 10px 20px" closed="true"
 		buttons="#dlg-buttons">
 
-		<form id="fm" method="post">
+		<form id="fm" method="post" enctype="multipart/form-data">
 			<table cellspacing="8px">
 				<tr>
 					<td>博客类别名称：</td>
 					<td><input type="text" id="typeName" name="typeName"
+						class="easyui-validatebox" required="true" />
+					</td>
+				</tr>
+				<tr>
+					<td>类别描述：</td>
+					<td><input type="text" id="describes" name="describes"
+						class="easyui-validatebox" required="true" />
+					</td>
+				</tr>
+				<tr>
+					<td>图片：</td>
+					<td><input type="file" id="imageFile" name="imageFile"
 						class="easyui-validatebox" required="true" />
 					</td>
 				</tr>

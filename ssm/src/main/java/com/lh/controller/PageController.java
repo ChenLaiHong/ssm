@@ -29,9 +29,15 @@ public class PageController {
 		return "login";
 	}
 
-	// 去登录页面
+	// 去更新页面
 	@RequestMapping("/toUpdateUser")
 	public String toUpdateUser() {
 		return "updateUser";
+	}
+
+	// 去后台更新类别页面
+	@RequestMapping("/toAdminBlogType")
+	public String toAdminBlogType() {
+		return "adminBlogType";
 	}
 }

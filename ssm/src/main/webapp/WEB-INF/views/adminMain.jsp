@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,7 +22,7 @@
 		if($("#tabs").tabs("exists",text)){
 			$("#tabs").tabs("select",text);
 		}else{
-			var content="<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='${APP_PATH}/admin/"+url+"'></iframe>";
+			var content="<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='${APP_PATH}/"+url+"'></iframe>";
 			$("#tabs").tabs("add",{
 				title:text,
 				iconCls:iconCls,
@@ -98,12 +98,7 @@
 	<table style="padding: 5px" width="100%">
 		<tr>
 			<td>
-			<c:if test="${currentUser.imageName ==null}"> 
-				<img src="${APP_PATH}/static/images/moren.png"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
-			</c:if>
-			<c:if test="${currentUser.imageName !=null}"> 
-				<img src="${APP_PATH}/static/images/${currentUser.imageName }"  class="img-circle" width="60" height="60" style="display: inline-block;" > 
-			</c:if>
+			
 			</td>
 			<td valign="bottom" align="right" width="50%">
 				<font size="3">&nbsp;&nbsp;<strong>欢迎：</strong>${currentUser.uname }</font>
@@ -126,10 +121,10 @@
 		</div>
 		<div title="博客管理"  data-options="iconCls:'icon-bkgl'" style="padding:10px;">
 			<a href="javascript:openTab('注册用户管理','user.jsp','icon-writeblog')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-writeblog'" style="width: 150px;">写博客</a>
-			<a href="javascript:openTab('博客信息管理','blogManage.jsp','icon-bkgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bkgl'" style="width: 150px;">博客信息管理</a>
+			<a href="javascript:openTab('博客信息管理','adminBlogType.jsp','icon-bkgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bkgl'" style="width: 150px;">博客信息管理</a>
 		</div>
 		<div title="博客类别管理" data-options="iconCls:'icon-bklb'" style="padding:10px">
-			<a href="javascript:openTab('博客类别信息管理','blogTypeManage.jsp','icon-bklb')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bklb'" style="width: 150px;">博客类别信息管理</a>
+			<a href="javascript:openTab('博客类别信息管理','toAdminBlogType.do','icon-bklb')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bklb'" style="width: 150px;">博客类别信息管理</a>
 		</div>
 		<div title="评论管理"  data-options="iconCls:'icon-plgl'" style="padding:10px">
 			<a href="javascript:openTab('评论审核','commentReview.jsp','icon-review')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-review'" style="width: 150px">评论审核</a>

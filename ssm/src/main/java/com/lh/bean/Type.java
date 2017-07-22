@@ -5,7 +5,7 @@ public class Type {
 
 	private String typeName;
 
-	private String describe;
+	private String describes;
 
 	private String imageName;
 
@@ -14,12 +14,12 @@ public class Type {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Type(Integer typeId, String typeName, String describe,
+	public Type(Integer typeId, String typeName, String describes,
 			String imageName) {
 		super();
 		this.typeId = typeId;
 		this.typeName = typeName;
-		this.describe = describe;
+		this.describes = describes;
 		this.imageName = imageName;
 	}
 
@@ -39,12 +39,12 @@ public class Type {
 		this.typeName = typeName == null ? null : typeName.trim();
 	}
 
-	public String getDescribe() {
-		return describe;
+	public String getDescribes() {
+		return describes;
 	}
 
-	public void setDescribe(String describe) {
-		this.describe = describe == null ? null : describe.trim();
+	public void setDescribes(String describes) {
+		this.describes = describes == null ? null : describes.trim();
 	}
 
 	public String getImageName() {

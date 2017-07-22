@@ -38,7 +38,7 @@ public class LoginController {
 			// response.addCookie(cookie);
 			request.getSession().setAttribute("currentUser", user);
 
-			return "index1";
+			return "adminMain";
 		} else {
 
 			request.setAttribute("errorInfo", "用户名或密码错误！");

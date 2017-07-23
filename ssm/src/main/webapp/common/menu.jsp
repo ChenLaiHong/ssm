@@ -20,8 +20,8 @@
 			</c:if></div>
     <nav>
         <ul class="sf-menu" id="nav">
-          <li class="selected"><a href="index.html">博客列表</a></li>
-          <li><a href="toLogin">写博客</a></li>
+          <li class="active"><a href="index.html">博客列表</a></li>
+          <li><a href="toWriter">写博客</a></li>
           <li><a href="portfolio.html">评论管理</a></li>
           <li><a href="blog.html">Blog</a></li>
            <li><a href="contact.php">源码下载</a></li>

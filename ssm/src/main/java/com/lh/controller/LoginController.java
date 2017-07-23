@@ -30,24 +30,17 @@ public class LoginController {
 		String password = DigestUtils.md5Hex(request.getParameter("password"));
 		User user = userService.findUserByName(uname);
 
-		// if (user != null) {
 		if (user.getPassword().equals(password)
 				&& user.getUname().equals(uname)) {
-
-			// Cookie cookie = new Cookie("uname", uname);
-			// response.addCookie(cookie);
 			request.getSession().setAttribute("currentUser", user);
 
-			return "adminMain";
+			return "redirect:/types";
 		} else {
 
 			request.setAttribute("errorInfo", "用户名或密码错误！");
 			return "login";
 		}
-		/**
-		 * } else { // out.println(2); // 用户或密码不正确
-		 * request.setAttribute("errorInfo", "用户名或密码错误！"); return "login"; }
-		 */
+
 	}
 
 	// 退出操作
@@ -55,7 +48,7 @@ public class LoginController {
 	public String loginout(HttpSession session) throws Exception {
 		// 清除Session
 		session.invalidate();
-		return "index1";
+		return "redirect:/types";
 	}
 
 }

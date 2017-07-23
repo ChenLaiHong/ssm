@@ -80,155 +80,61 @@
 				<h2>I'm John Doe </h2>
 			</div>
 		</div>
+		
 		<div id="fh5co-main-content">
 			<div class="fh5co-post"> 
+			
+			<table class="" >
+			<c:forEach items="${pageInfo.list }" var="type">
 				<div class="fh5co-entry padding">
-					<img src="static/images/project-1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+					<img src="${APP_PATH}/static/userImages/${type.imageName}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
+						
+						<h2><a href="single.html">${type.typeName }</a></h2>
+						<p>${type.describes }</p>
 					</div>
 				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-5.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-6.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-7.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-8.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-                <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-5.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-6.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-7.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="static/images/project-8.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
+				</c:forEach>
+			</table>
+				<div class="row">
+               <div class="col-md-6">
+               		当前第${pageInfo.pageNum }页，总${pageInfo.pages }页，总${pageInfo.total }条记录
+               </div>
+               <div class="col-md-6">
+               		<nav aria-label="Page navigation">
+ 					 <ul class="pagination pagination-sm">
+ 					  <li><a href="${APP_PATH}/types?pn=1">首页</a>
+ 					 	<c:if test="${pageInfo.hasPreviousPage }">
+ 					 		<li>
+     						 <a href="${APP_PATH}/types?pn=${pageInfo.pageNum-1 }" aria-label="Previous">
+       						 <span aria-hidden="true">&laquo;</span>
+     						 </a>
+     						 </li>
+ 					 	</c:if>
+ 					 	
+     						 <c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
+     						 	<c:if test="${page_Num == pageInfo.pageNum }">
+     						 		<li class="active"><a href="#">${page_Num }</a></li>
+     						 	</c:if>
+     						 	 <c:if test="${page_Num != pageInfo.pageNum }">
+     						 		<li><a href="${APP_PATH}/types?pn=${page_Num }">${page_Num }</a></li>
+     						 	</c:if>
+     						 </c:forEach>
+   						<c:if test="${pageInfo.hasNextPage }">
+   							<li>
+      						<a href="${APP_PATH}/types?pn=${pageInfo.pageNum+1 }" aria-label="Next">
+        					<span aria-hidden="true">&raquo;</span>
+     						 </a>
+   						 </li>
+   						</c:if>
+   						 
+   						  <li><a href="${APP_PATH}/types?pn=${pageInfo.pages}">末页</a>
+ 					 </ul>
+					</nav>
+               </div>
+               </div>
 				<footer>
 					<div>
-					 
                       	<c:if test="${currentUser.uname ==null}">  
         					<a href="toLogin">登录</a>  
         					<a href="toRegister">注册</a>  

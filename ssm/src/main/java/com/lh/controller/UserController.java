@@ -40,14 +40,7 @@ public class UserController {
 		}
 
 		userService.updateByPrimaryKeySelective(user);
-		/*
-		 * StringBuffer result = new StringBuffer(); System.out.println("查询结果" +
-		 * resultTotal); if (resultTotal > 0) {
-		 * result.append("<script language='javascript'>alert('修改成功！');</script>"
-		 * ); } else {
-		 * result.append("<script language='javascript'>alert('修改失败！');</script>"
-		 * ); } ResponseUtil.write(response, result);
-		 */
+
 		return "redirect:/toMain";
 	}
 

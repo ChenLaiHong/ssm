@@ -40,4 +40,10 @@ public class PageController {
 	public String toAdminBlogType() {
 		return "adminBlogType";
 	}
+
+	// 去写博客页面
+	@RequestMapping("/toWriter")
+	public String toWriter() {
+		return "writerBlog";
+	}
 }

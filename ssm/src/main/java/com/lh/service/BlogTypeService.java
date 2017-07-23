@@ -38,4 +38,11 @@ public class BlogTypeService {
 		return typeMapper.deleteByPrimaryKey(typeId);
 
 	}
+
+	// 主页用到的查询方法
+	public List<Type> getAll() {
+
+		return typeMapper.selectByExample(null);
+	}
+
 }

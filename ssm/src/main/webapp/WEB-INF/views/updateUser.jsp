@@ -60,6 +60,8 @@
      
         <form id="form1" action="${APP_PATH}/user/save.do" method="post" enctype="multipart/form-data">
 	 	<table cellspacing="20px">
+	 	<div style="color:#F00">修改后下一次登录生效</div>
+	 	
 	   		<tr>
 	   			<td width="80px">用户名：</td>
 	   			<td>

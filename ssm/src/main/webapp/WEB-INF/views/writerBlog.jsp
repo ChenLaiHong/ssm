@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +9,12 @@
  <%
  pageContext.setAttribute("APP_PATH",request.getContextPath());
  %>
+
+<meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	
+
 <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="${APP_PATH}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -26,7 +33,10 @@
 	
 	function submitData(){
 		var title=$("#title").val();
-		var typeId=$("#typeId").combobox("getValue");
+		
+    //获得select选中的值，就是我们自己设定的id值
+         var typeId=$("#typeId").val();
+		
 		var content=UE.getEditor('editor').getContent();
 		var keyWord=$("#keyWord").val();
 		
@@ -37,7 +47,7 @@
 		}else if(content==null || content==''){
 			alert("请输入内容！");
 		}else{
-			$.post("${APP_PATH}/admin/blog/save.do",{'title':title,'type.typeId':typeId,'content':content,'contentNoTag':UE.getEditor('editor').getContentTxt(),'summary':UE.getEditor('editor').getContentTxt().substr(0,155),'keyWord':keyWord},function(result){
+			$.post("${APP_PATH}/blog/save.do",{'title':title,'type.typeId':typeId,'content':content,'contentNoTag':UE.getEditor('editor').getContentTxt(),'summary':UE.getEditor('editor').getContentTxt().substr(0,155),'keyWord':keyWord},function(result){
 				if(result.success){
 					alert("博客发布成功！");
 					resetValue();
@@ -51,33 +61,33 @@
 	// 重置数据
 	function resetValue(){
 		$("#title").val("");
-		$("#typeId").combobox("setValue","");
+		$("#typeId").val("");
 		UE.getEditor('editor').setContent("");
 		$("#keyWord").val("");
 	}
 	
 </script>
 </head>
-<body>
+<body style="margin: 10px">
 	 <div id="main">
   
       <jsp:include page="/common/menu.jsp"/>   
 	
     <div id="site_content">
-		
-			<table cellspacing="20px">
+
+	<table cellspacing="20px">
    		<tr>
-   		 <input type="hidden" id="uname" name="uname" value="${currentUser.uname }"/>
+   		 <input type="hidden" id="author" name="author" value="${currentUser.uname }"/>
    			<td width="80px">博客标题：</td>
    			<td><input type="text" id="title" name="title" style="width: 400px;"/></td>
    		</tr>
    		<tr>
    			<td>所属类别：</td>
    			<td>
-   				<select class="easyui-combobox" style="width: 154px" id="typeId" name="type.typeId" editable="false" panelHeight="auto" >
+   				<select id="typeId" name="type.typeId" >
 					<option value="">请选择博客类别...</option>	
-				    <c:forEach var="blogType" items="${blogTypeCountList }">
-				    	<option value="${blogType.typeId }">${blogType.typeName }</option>
+				    <c:forEach var="type" items="${pageInfo.list }">
+				    	<option value="${type.typeId }">${type.typeName }</option>
 				    </c:forEach>			
                 </select>
    			</td>
@@ -99,7 +109,7 @@
    			</td>
    		</tr>
    	</table>
-		
+   	
 		</div>
 		<jsp:include page="/common/foot.jsp"/>   
 	
@@ -107,6 +117,7 @@
 	 <script type="text/javascript" src="${APP_PATH}/static/js/jquery.js"></script>
   <script type="text/javascript" src="${APP_PATH}/static/js/jquery.easing-sooper.js"></script>
   <script type="text/javascript" src="${APP_PATH}/static/js/jquery.sooperfish.js"></script>
+ 
 <script type="text/javascript">
 
     //实例化编辑器

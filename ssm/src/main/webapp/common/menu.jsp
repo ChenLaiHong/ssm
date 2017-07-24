@@ -20,7 +20,7 @@
 			</c:if></div>
     <nav>
         <ul class="sf-menu" id="nav">
-          <li class="active"><a href="index.html">博客列表</a></li>
+          <li><a href="index.html">博客列表</a></li>
           <li><a href="toWriter">写博客</a></li>
           <li><a href="portfolio.html">评论管理</a></li>
           <li><a href="blog.html">Blog</a></li>

@@ -45,4 +45,9 @@ public class BlogTypeService {
 		return typeMapper.selectByExample(null);
 	}
 
+	public List<Type> countList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

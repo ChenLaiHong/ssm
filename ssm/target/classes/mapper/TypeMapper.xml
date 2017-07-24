@@ -6,6 +6,8 @@
     <result column="typeName" jdbcType="VARCHAR" property="typeName" />
     <result column="describes" jdbcType="VARCHAR" property="describes" />
     <result column="imageName" jdbcType="VARCHAR" property="imageName" />
+    <result column="blogCount" jdbcType="INTEGER" property="blogCount" />
+    <result column="orderNo" jdbcType="INTEGER" property="orderNo" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -88,6 +90,10 @@
     from type
     where typeId = #{typeId,jdbcType=INTEGER}
   </select>
+  <!-- 根据id查询 -->
+  <select id="findById" parameterType="Integer" resultMap="BaseResultMap">
+		select * from type where typeId=#{typeId}
+	</select>
   
   <!-- 分页查询 -->
   <select id="list" parameterType="Map" resultMap="BaseResultMap">
@@ -96,6 +102,11 @@
 			limit #{start},#{size}
 		</if>
 	</select>
+	<!-- 查询所有博客类型 以及对应的博客数量 -->
+	<select id="countList" resultMap="BaseResultMap">
+		SELECT t2.typeId,t2.typeName,COUNT(t1.typeId) AS blogCount FROM blog t1 RIGHT JOIN Type t2 ON t1.typeId=t2.typeId GROUP BY t2.typeName order by t2.orderNo;
+	</select>
+	
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from type
     where typeId = #{typeId,jdbcType=INTEGER}

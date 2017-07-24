@@ -37,4 +37,7 @@ public interface BlogMapper {
 	int updateByPrimaryKey(Blog record);
 
 	int getBlogByTypeId(Integer typeId);
+
+	int add(Blog blog);
+
 }

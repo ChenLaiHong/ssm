@@ -27,17 +27,17 @@
       
       <jsp:include page="/common/photo.jsp"/>   
       
-      <div id="content">
-        <h1>Welcome to photo_style_two</h1>
-        <p>This standards compliant, fixed width website template is released as an 'open source' design (under a Creative Commons Attribution 3.0 Licence), which means that you are free to use it for anything you want (including modifying and amending it). All I ask is that you leave the '网页模板' link in the footer of the template. All of the photos were taken by me - use as you wish.</p>
-        <h3>Browser Compatibility</h3>
-        <p>This template has been tested in the following browsers:</p>
-        <ul>
-          <li>Internet Explorer 8</li>
-          <li>Internet Explorer 7</li>
-          <li>FireFox 10</li>
-          <li>Google Chrome 17</li>
-        </ul>
+       <div id="content">
+        <h1>Blog</h1>
+        <div id="blog_container">
+          <div class="blog"><h2>Nov</h2><h3>22nd</h3></div>
+          <h4 class="select"><a href="#">Magazine Photo-Shoot on the Isle-Of-Islay</a></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#">read more.....</a></p>
+          <div class="blog"><h2>Oct</h2><h3>25th</h3></div>
+          <h4><a href="#">Wedding Shoot in Edinburgh</a></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#">read more.....</a></p>
+        </div>
+        <p></p>
       </div>
     </div>
     

@@ -9,6 +9,10 @@ public class Type {
 
 	private String imageName;
 
+	private Integer blogCount; // 数量
+
+	private Integer orderNo; // 排序 从小到大排序显示
+
 	public Type() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -21,6 +25,22 @@ public class Type {
 		this.typeName = typeName;
 		this.describes = describes;
 		this.imageName = imageName;
+	}
+
+	public Integer getBlogCount() {
+		return blogCount;
+	}
+
+	public void setBlogCount(Integer blogCount) {
+		this.blogCount = blogCount;
+	}
+
+	public Integer getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
 	}
 
 	public Integer getTypeId() {

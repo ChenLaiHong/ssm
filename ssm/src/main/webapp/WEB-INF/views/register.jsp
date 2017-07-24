@@ -239,16 +239,7 @@
 		$("#xxx").html('有验证没通过！');
 		return false;
 	}
-/**	
-	$("#user_save").click(function(){
-		$.ajax({
-			url : '${APP_PATH}/zhucecaozuo',
-			type:"POST", 
-			data:$("form").serialize(),
-			
-		});
-	});
-*/
+
 </script>
 </html>
 

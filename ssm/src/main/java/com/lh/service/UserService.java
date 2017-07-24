@@ -64,7 +64,7 @@ public class UserService {
 		userMapper.updateByPrimaryKeySelective(user);
 	}
 
-	public User find(Integer uid) {
+	public User find(int uid) {
 		return userMapper.selectByPrimaryKey(uid);
 	}
 

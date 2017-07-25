@@ -740,8 +740,8 @@ public class BlogExample {
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeidIn(List<Integer> values) {
-			addCriterion("typeId in", values, "typeid");
+		public Criteria andTypeidIn(String typeId) {
+			addCriterion("typeId in", typeId, "typeid");
 			return (Criteria) this;
 		}
 

@@ -98,7 +98,9 @@
 	<table style="padding: 5px" width="100%">
 		<tr>
 			<td>
-			
+			<div class="col-md-8">
+		<iframe style="float: right;" width="420" scrolling="no" height="60" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=5"></iframe>
+	        </div>
 			</td>
 			<td valign="bottom" align="right" width="50%">
 				<font size="3">&nbsp;&nbsp;<strong>欢迎：</strong>${currentUser.uname }</font>

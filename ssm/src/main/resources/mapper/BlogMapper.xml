@@ -5,25 +5,25 @@
     <id column="bid" jdbcType="INTEGER" property="bid" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="summary" jdbcType="VARCHAR" property="summary" />
-    <result column="releaseDate" jdbcType="TIMESTAMP" property="releasedate" />
+    <result column="releaseDate" jdbcType="TIMESTAMP" property="releaseDate" />
     <result column="author" jdbcType="VARCHAR" property="author" />
-    <result column="clickHit" jdbcType="INTEGER" property="clickhit" />
-    <result column="replyHit" jdbcType="INTEGER" property="replyhit" />
+    <result column="clickHit" jdbcType="INTEGER" property="clickHit" />
+    <result column="replyHit" jdbcType="INTEGER" property="replyHit" />
     <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="keyWord" jdbcType="VARCHAR" property="keyword" />
-    <result column="typeId" jdbcType="INTEGER" property="typeid" />
+    <result column="keyWord" jdbcType="VARCHAR" property="keyWord" />
+    <result column="typeId" jdbcType="INTEGER" property="typeId" />
   </resultMap>
   
    <resultMap id="BlogResult" type="com.lh.bean.Blog">
     <id column="bid" jdbcType="INTEGER" property="bid" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="summary" jdbcType="VARCHAR" property="summary" />
-    <result column="releaseDate" jdbcType="TIMESTAMP" property="releasedate" />
+    <result column="releaseDate" jdbcType="TIMESTAMP" property="releaseDate" />
     <result column="author" jdbcType="VARCHAR" property="author" />
-    <result column="clickHit" jdbcType="INTEGER" property="clickhit" />
-    <result column="replyHit" jdbcType="INTEGER" property="replyhit" />
+    <result column="clickHit" jdbcType="INTEGER" property="clickHit" />
+    <result column="replyHit" jdbcType="INTEGER" property="replyHit" />
     <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="keyWord" jdbcType="VARCHAR" property="keyword" />
+    <result column="keyWord" jdbcType="VARCHAR" property="keyWord" />
    <association property="type" column="typeId" select="com.lh.dao.TypeMapper.findById"></association>
 		
   </resultMap>
@@ -129,9 +129,9 @@
       replyHit, content, keyWord, 
       typeId)
     values (#{bid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
-      #{releasedate,jdbcType=TIMESTAMP}, #{author,jdbcType=VARCHAR}, #{clickhit,jdbcType=INTEGER}, 
-      #{replyhit,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, 
-      #{typeid,jdbcType=INTEGER})
+      #{releaseDate,jdbcType=TIMESTAMP}, #{author,jdbcType=VARCHAR}, #{clickHit,jdbcType=INTEGER}, 
+      #{replyHit,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{keyWord,jdbcType=VARCHAR}, 
+      #{typeId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.lh.bean.Blog">
     insert into blog
@@ -145,25 +145,25 @@
       <if test="summary != null">
         summary,
       </if>
-      <if test="releasedate != null">
+      <if test="releaseDate != null">
         releaseDate,
       </if>
       <if test="author != null">
         author,
       </if>
-      <if test="clickhit != null">
+      <if test="clickHit != null">
         clickHit,
       </if>
-      <if test="replyhit != null">
+      <if test="replyHit != null">
         replyHit,
       </if>
       <if test="content != null">
         content,
       </if>
-      <if test="keyword != null">
+      <if test="keyWord != null">
         keyWord,
       </if>
-      <if test="typeid != null">
+      <if test="typeId != null">
         typeId,
       </if>
     </trim>
@@ -177,26 +177,26 @@
       <if test="summary != null">
         #{summary,jdbcType=VARCHAR},
       </if>
-      <if test="releasedate != null">
-        #{releasedate,jdbcType=TIMESTAMP},
+      <if test="releaseDate != null">
+        #{releaseDate,jdbcType=TIMESTAMP},
       </if>
       <if test="author != null">
         #{author,jdbcType=VARCHAR},
       </if>
-      <if test="clickhit != null">
-        #{clickhit,jdbcType=INTEGER},
+      <if test="clickHit != null">
+        #{clickHit,jdbcType=INTEGER},
       </if>
-      <if test="replyhit != null">
-        #{replyhit,jdbcType=INTEGER},
+      <if test="replyHit != null">
+        #{replyHit,jdbcType=INTEGER},
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
       </if>
-      <if test="keyword != null">
-        #{keyword,jdbcType=VARCHAR},
+      <if test="keyWord != null">
+        #{keyWord,jdbcType=VARCHAR},
       </if>
-      <if test="typeid != null">
-        #{typeid,jdbcType=INTEGER},
+      <if test="typeId != null">
+        #{typeId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -218,26 +218,26 @@
       <if test="record.summary != null">
         summary = #{record.summary,jdbcType=VARCHAR},
       </if>
-      <if test="record.releasedate != null">
-        releaseDate = #{record.releasedate,jdbcType=TIMESTAMP},
+      <if test="record.releaseDate != null">
+        releaseDate = #{record.releaseDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.author != null">
         author = #{record.author,jdbcType=VARCHAR},
       </if>
-      <if test="record.clickhit != null">
-        clickHit = #{record.clickhit,jdbcType=INTEGER},
+      <if test="record.clickHit != null">
+        clickHit = #{record.clickHit,jdbcType=INTEGER},
       </if>
-      <if test="record.replyhit != null">
-        replyHit = #{record.replyhit,jdbcType=INTEGER},
+      <if test="record.replyHit != null">
+        replyHit = #{record.replyHit,jdbcType=INTEGER},
       </if>
       <if test="record.content != null">
         content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.keyword != null">
-        keyWord = #{record.keyword,jdbcType=VARCHAR},
+      <if test="record.keyWord != null">
+        keyWord = #{record.keyWord,jdbcType=VARCHAR},
       </if>
-      <if test="record.typeid != null">
-        typeId = #{record.typeid,jdbcType=INTEGER},
+      <if test="record.typeId != null">
+        typeId = #{record.typeId,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -249,13 +249,13 @@
     set bid = #{record.bid,jdbcType=INTEGER},
       title = #{record.title,jdbcType=VARCHAR},
       summary = #{record.summary,jdbcType=VARCHAR},
-      releaseDate = #{record.releasedate,jdbcType=TIMESTAMP},
+      releaseDate = #{record.releaseDate,jdbcType=TIMESTAMP},
       author = #{record.author,jdbcType=VARCHAR},
-      clickHit = #{record.clickhit,jdbcType=INTEGER},
-      replyHit = #{record.replyhit,jdbcType=INTEGER},
+      clickHit = #{record.clickHit,jdbcType=INTEGER},
+      replyHit = #{record.replyHit,jdbcType=INTEGER},
       content = #{record.content,jdbcType=VARCHAR},
-      keyWord = #{record.keyword,jdbcType=VARCHAR},
-      typeId = #{record.typeid,jdbcType=INTEGER}
+      keyWord = #{record.keyWord,jdbcType=VARCHAR},
+      typeId = #{record.typeId,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -269,26 +269,26 @@
       <if test="summary != null">
         summary = #{summary,jdbcType=VARCHAR},
       </if>
-      <if test="releasedate != null">
-        releaseDate = #{releasedate,jdbcType=TIMESTAMP},
+      <if test="releaseDate != null">
+        releaseDate = #{releaseDate,jdbcType=TIMESTAMP},
       </if>
       <if test="author != null">
         author = #{author,jdbcType=VARCHAR},
       </if>
-      <if test="clickhit != null">
-        clickHit = #{clickhit,jdbcType=INTEGER},
+      <if test="clickHit != null">
+        clickHit = #{clickHit,jdbcType=INTEGER},
       </if>
-      <if test="replyhit != null">
-        replyHit = #{replyhit,jdbcType=INTEGER},
+      <if test="replyHit != null">
+        replyHit = #{replyHit,jdbcType=INTEGER},
       </if>
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="keyword != null">
-        keyWord = #{keyword,jdbcType=VARCHAR},
+      <if test="keyWord != null">
+        keyWord = #{keyWord,jdbcType=VARCHAR},
       </if>
-      <if test="typeid != null">
-        typeId = #{typeid,jdbcType=INTEGER},
+      <if test="typeId != null">
+        typeId = #{typeId,jdbcType=INTEGER},
       </if>
     </set>
     where bid = #{bid,jdbcType=INTEGER}
@@ -297,13 +297,13 @@
     update blog
     set title = #{title,jdbcType=VARCHAR},
       summary = #{summary,jdbcType=VARCHAR},
-      releaseDate = #{releasedate,jdbcType=TIMESTAMP},
+      releaseDate = #{releaseDate,jdbcType=TIMESTAMP},
       author = #{author,jdbcType=VARCHAR},
-      clickHit = #{clickhit,jdbcType=INTEGER},
-      replyHit = #{replyhit,jdbcType=INTEGER},
+      clickHit = #{clickHit,jdbcType=INTEGER},
+      replyHit = #{replyHit,jdbcType=INTEGER},
       content = #{content,jdbcType=VARCHAR},
       keyWord = #{keyword,jdbcType=VARCHAR},
-      typeId = #{typeid,jdbcType=INTEGER}
+      typeId = #{typeId,jdbcType=INTEGER}
     where bid = #{bid,jdbcType=INTEGER}
   </update>
   

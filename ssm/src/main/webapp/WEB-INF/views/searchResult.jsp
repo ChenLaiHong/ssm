@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>博客</title>
+<title>搜索结果</title>
 
 <%
  pageContext.setAttribute("APP_PATH",request.getContextPath());
@@ -48,73 +48,66 @@ body {
 		<div class="row">
 			<div class="col-md-12">
 				<div class="data_list">
-
-					<div class="datas">
+					<div class="datas search">
 						<ul>
-							<c:forEach var="blog" items="${pageInfom.list }">
-								<li style="margin-bottom: 30px"><span class="date"><a
-										href="${APP_PATH}/blog/articles/${blog.bid}.do"><fmt:formatDate
-												value="${blog.releaseDate }" type="date"
-												pattern="yyyy年MM月dd日 HH时mm分ss秒" />
-									</a>
-								</span> <span class="title"><a
-										href="${APP_PATH}/blog/articles/${blog.bid}.do">${blog.title
-											}</a>
-								</span> <span class="summary">摘要: ${blog.summary }...</span> <span
-									class="img"> <c:forEach var="image"
-											items="${blog.imagesList }">
-											<a href="${APP_PATH}/blog/articles/${blog.bid}.do">${image
-												}</a>
-					  		&nbsp;&nbsp;
-				  		</c:forEach> </span> <span class="info">发表于 <fmt:formatDate
-											value="${blog.releaseDate }" type="date"
-											pattern="yyyy-MM-dd HH:mm:ss" /> 阅读(${blog.clickHit})
-										评论(${blog.replyHit}) </span></li>
-								<hr
-									style="height:5px;border:none;border-top:1px dashed gray;padding-bottom:  10px;" />
-							</c:forEach>
+							<c:choose>
+								<c:when test="${searchResult.size()==0 }">
+									<div align="center" style="padding-top: 20px">未查询到结果，请换个关键字试试看！</div>
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="blog" items="${searchResult.list }">
+										<li style="margin-bottom: 20px"><span class="title"><a
+												href="${APP_PATH}/blog/articles/${blog.bid}.html"
+												target="_blank">${blog.title }</a>
+										</span> <span class="summary">摘要: ${blog.summary }...</span> <span
+											class="link"><a
+												href="${APP_PATH}/blog/articles/${blog.bid}.html">http://blog.java1234.com/blog/articles/${blog.bid}.html</a>&nbsp;&nbsp;&nbsp;&nbsp;发布日期：${blog.releaseDateStr
+												}</span></li>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 						</ul>
 					</div>
 				</div>
 
 				<div>
 					<div class="row">
-						<div class="col-md-6">当前第${pageInfom.pageNum
-							}页，总${pageInfom.pages }页，总${pageInfom.total }条记录</div>
+						<div class="col-md-6">当前第${searchResult.pageNum
+							}页，总${searchResult.pages }页，总${searchResult.total }条记录</div>
 						<div class="col-md-6">
 							<nav aria-label="Page navigation">
 							<ul class="pagination pagination-sm">
-								<li><a href="${APP_PATH}/blogList?pn=1">首页</a> <c:if
-										test="${pageInfom.hasPreviousPage }">
-										<li><a
-											href="${APP_PATH}/blogList?pn=${pageInfom.pageNum-1 }"
+								<li><a href="${APP_PATH}/q?pn=1">首页</a> <c:if
+										test="${searchResult.hasPreviousPage }">
+										<li><a href="${APP_PATH}/q?pn=${searchResult.pageNum-1 }"
 											aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 										</a></li>
-									</c:if> <c:forEach items="${pageInfom.navigatepageNums }"
+									</c:if> <c:forEach items="${searchResult.navigatepageNums }"
 										var="page_Num">
-										<c:if test="${page_Num == pageInfom.pageNum }">
+										<c:if test="${page_Num == searchResult.pageNum }">
 											<li class="active"><a href="#">${page_Num }</a>
 											</li>
 										</c:if>
-										<c:if test="${page_Num != pageInfom.pageNum }">
-											<li><a href="${APP_PATH}/blogList?pn=${page_Num }">${page_Num
+										<c:if test="${page_Num != searchResult.pageNum }">
+											<li><a href="${APP_PATH}/q?pn=${page_Num }">${page_Num
 													}</a>
 											</li>
 										</c:if>
-									</c:forEach> <c:if test="${pageInfom.hasNextPage }">
-										<li><a
-											href="${APP_PATH}/blogList?pn=${pageInfom.pageNum+1 }"
+									</c:forEach> <c:if test="${searchResult.hasNextPage }">
+										<li><a href="${APP_PATH}/q?pn=${searchResult.pageNum+1 }"
 											aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 										</a></li>
 									</c:if>
-								<li><a href="${APP_PATH}/blogList?pn=${pageInfom.pages}">末页</a>
+								<li><a href="${APP_PATH}/blogList?pn=${searchResult.pages}">末页</a>
 							</ul>
 							</nav>
 						</div>
 					</div>
 				</div>
 			</div>
+
 		</div>
+
 	</div>
 </body>
 </html>

@@ -28,8 +28,8 @@ public class IndexController {
 	@Autowired
 	BlogService blogService;
 
-	@Autowired
-	BlogIndex blogIndex;
+	// 博客索引
+	private BlogIndex blogIndex = new BlogIndex();
 
 	// 一进入主页便去查找类型进行显示
 	@RequestMapping("/types")
@@ -65,6 +65,7 @@ public class IndexController {
 		}
 		PageInfo page = new PageInfo(blogs, 2);// 页码连续两页显示
 		model.addAttribute("pageInfom", page);
+		model.addAttribute("typeId", typeId);
 		return "list";
 	}
 

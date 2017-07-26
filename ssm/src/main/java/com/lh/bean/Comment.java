@@ -3,17 +3,27 @@ package com.lh.bean;
 import java.util.Date;
 
 public class Comment {
-	private Integer cid;
+	private Integer cid;// 数据库数据，评论的id
 
-	private String content;
+	private String content;// 数据库数据，评论内容
 
-	private String author;
+	private String author;// 数据库数据，评论作者
 
-	private Date commentDate;
+	private Date commentDate;// 数据库数据，评论日期
 
-	private Integer state;
+	private Integer state;// 数据库数据，评论状态
 
-	private Integer bid;
+	private Integer bid;// 数据库数据，外键
+
+	private Blog blog; // 被评论的博客
+
+	public Blog getBlog() {
+		return blog;
+	}
+
+	public void setBlog(Blog blog) {
+		this.blog = blog;
+	}
 
 	public Integer getCid() {
 		return cid;

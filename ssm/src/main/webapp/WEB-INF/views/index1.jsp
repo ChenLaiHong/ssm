@@ -79,7 +79,7 @@
 			<nav role="navigation">
 				<ul>
 					<c:if test="${currentUser.uname !=null}">
-						<li><a href="toMain"><i class="icon-home"></i>
+						<li><a href="toMain?uname=${currentUser.uname }"><i class="icon-home"></i>
 						</a>
 						</li>
 					</c:if>
@@ -101,7 +101,6 @@
 							<img src="${APP_PATH}/static/userImages/${type.imageName}"
 								alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 							<div>
-
 								<h2>
 									<a href="${APP_PATH}/blogList.do?typeId=${type.typeId }">${type.typeName
 										}</a>

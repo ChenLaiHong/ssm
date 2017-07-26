@@ -48,7 +48,7 @@ body {
 		<div class="row">
 			<div class="col-md-12">
 				<div class="data_list">
-
+                         <input type="hidden" id="typeId" name="typeId" value="${typeId }"/>
 					<div class="datas">
 						<ul>
 							<c:forEach var="blog" items="${pageInfom.list }">
@@ -69,7 +69,7 @@ body {
 				  		</c:forEach> </span> <span class="info">发表于 <fmt:formatDate
 											value="${blog.releaseDate }" type="date"
 											pattern="yyyy-MM-dd HH:mm:ss" /> 阅读(${blog.clickHit})
-										评论(${blog.replyHit}) </span></li>
+										评论(${blog.replyHit}) 作者(${blog.author})</span></li>
 								<hr
 									style="height:5px;border:none;border-top:1px dashed gray;padding-bottom:  10px;" />
 							</c:forEach>
@@ -84,10 +84,10 @@ body {
 						<div class="col-md-6">
 							<nav aria-label="Page navigation">
 							<ul class="pagination pagination-sm">
-								<li><a href="${APP_PATH}/blogList?pn=1">首页</a> <c:if
+								<li><a href="${APP_PATH}/blogList?pn=1&typeId=${typeId }">首页</a> <c:if
 										test="${pageInfom.hasPreviousPage }">
 										<li><a
-											href="${APP_PATH}/blogList?pn=${pageInfom.pageNum-1 }"
+											href="${APP_PATH}/blogList?pn=${pageInfom.pageNum-1 }&typeId=${typeId }"
 											aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 										</a></li>
 									</c:if> <c:forEach items="${pageInfom.navigatepageNums }"
@@ -97,17 +97,17 @@ body {
 											</li>
 										</c:if>
 										<c:if test="${page_Num != pageInfom.pageNum }">
-											<li><a href="${APP_PATH}/blogList?pn=${page_Num }">${page_Num
+											<li><a href="${APP_PATH}/blogList?pn=${page_Num }&typeId=${typeId }">${page_Num
 													}</a>
 											</li>
 										</c:if>
 									</c:forEach> <c:if test="${pageInfom.hasNextPage }">
 										<li><a
-											href="${APP_PATH}/blogList?pn=${pageInfom.pageNum+1 }"
+											href="${APP_PATH}/blogList?pn=${pageInfom.pageNum+1 }&typeId=${typeId }"
 											aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 										</a></li>
 									</c:if>
-								<li><a href="${APP_PATH}/blogList?pn=${pageInfom.pages}">末页</a>
+								<li><a href="${APP_PATH}/blogList?pn=${pageInfom.pages}&typeId=${typeId }">末页</a>
 							</ul>
 							</nav>
 						</div>

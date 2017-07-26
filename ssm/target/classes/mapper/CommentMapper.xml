@@ -70,6 +70,23 @@
   <sql id="Base_Column_List">
     cid, content, author, commentDate, state, bid
   </sql>
+  
+  <select id="list" parameterType="Map" resultMap="BaseResultMap">
+		select * from comment
+		<where>
+			<if test="bid!=null">
+				and bid=#{bid}
+			</if>
+			<if test="state!=null">
+				and state=#{state}
+			</if>
+		</where>
+		order by commentDate 
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
   <select id="selectByExample" parameterType="com.lh.bean.CommentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -151,6 +168,11 @@
       </if>
     </trim>
   </insert>
+  
+  <!-- 添加评论 -->
+  <insert id="add" parameterType="com.lh.bean.Comment">
+		insert into comment values(null,#{author},#{content},now(),0,#{blog.bid})
+	</insert>
   <select id="countByExample" parameterType="com.lh.bean.CommentExample" resultType="java.lang.Long">
     select count(*) from comment
     <if test="_parameter != null">

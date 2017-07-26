@@ -1,30 +1,39 @@
 package com.lh.dao;
 
-import com.lh.bean.Comment;
-import com.lh.bean.CommentExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
+import com.lh.bean.Comment;
+import com.lh.bean.CommentExample;
+
 public interface CommentMapper {
-    long countByExample(CommentExample example);
+	long countByExample(CommentExample example);
 
-    int deleteByExample(CommentExample example);
+	int deleteByExample(CommentExample example);
 
-    int deleteByPrimaryKey(Integer cid);
+	int deleteByPrimaryKey(Integer cid);
 
-    int insert(Comment record);
+	int insert(Comment record);
 
-    int insertSelective(Comment record);
+	int insertSelective(Comment record);
 
-    List<Comment> selectByExample(CommentExample example);
+	List<Comment> selectByExample(CommentExample example);
 
-    Comment selectByPrimaryKey(Integer cid);
+	List<Comment> list(Map<String, Object> map);
 
-    int updateByExampleSelective(@Param("record") Comment record, @Param("example") CommentExample example);
+	Comment selectByPrimaryKey(Integer cid);
 
-    int updateByExample(@Param("record") Comment record, @Param("example") CommentExample example);
+	int updateByExampleSelective(@Param("record") Comment record,
+			@Param("example") CommentExample example);
 
-    int updateByPrimaryKeySelective(Comment record);
+	int updateByExample(@Param("record") Comment record,
+			@Param("example") CommentExample example);
 
-    int updateByPrimaryKey(Comment record);
+	int updateByPrimaryKeySelective(Comment record);
+
+	int updateByPrimaryKey(Comment record);
+
+	int add(Comment comment);
 }

@@ -48,62 +48,31 @@ body {
 		<div class="row">
 			<div class="col-md-12">
 				<div class="data_list">
-					<div class="datas search">
-						<ul>
-							<c:choose>
-								<c:when test="${searchResult.size()==0 }">
-									<div align="center" style="padding-top: 20px">未查询到结果，请换个关键字试试看！</div>
-								</c:when>
-								<c:otherwise>
-									<c:forEach var="blog" items="${searchResult.list }">
-										<li style="margin-bottom: 20px"><span class="title"><a
-												href="${APP_PATH}/blog/articles/${blog.bid}.html"
-												target="_blank">${blog.title }</a>
-										</span> <span class="summary">摘要: ${blog.summary }...</span> <span
-											class="link"><a
-												href="${APP_PATH}/blog/articles/${blog.bid}.html">http://blog.java1234.com/blog/articles/${blog.bid}.html</a>&nbsp;&nbsp;&nbsp;&nbsp;发布日期：${blog.releaseDateStr
-												}</span></li>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>
-						</ul>
-					</div>
-				</div>
+		<div class="data_list_title">
+		<img src="${APP_PATH}/static/images/search_icon.png"/>
+		搜索&nbsp;<font color="red">${q }</font>&nbsp;的结果 &nbsp;(总共搜索到&nbsp;${resultTotal}&nbsp;条记录) </div>
+		<div class="datas search">
+			<ul>
+				<c:choose>
+					<c:when test="${blogList.size()==0 }">
+						<div align="center" style="padding-top: 20px">未查询到结果，请换个关键字试试看！</div>
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="blog" items="${blogList }">
+					  	  <li style="margin-bottom: 20px">
+						  	<span class="title"><a href="${APP_PATH}/blog/articles/${blog.bid}.do" target="_blank">${blog.title }</a></span>
+						  	<span class="summary">摘要: ${blog.content }...</span>
+						  	<span class="link"><a href="${APP_PATH}/blog/articles/${blog.bid}.do">http://localhost:8080/ssm/blog/articles/${blog.bid}.do</a>&nbsp;&nbsp;&nbsp;&nbsp;发布日期：${blog.releaseDateStr }</span>
+						  </li>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</ul>
+		</div>
+		${pageCode }
+   </div>
 
-				<div>
-					<div class="row">
-						<div class="col-md-6">当前第${searchResult.pageNum
-							}页，总${searchResult.pages }页，总${searchResult.total }条记录</div>
-						<div class="col-md-6">
-							<nav aria-label="Page navigation">
-							<ul class="pagination pagination-sm">
-								<li><a href="${APP_PATH}/q?pn=1">首页</a> <c:if
-										test="${searchResult.hasPreviousPage }">
-										<li><a href="${APP_PATH}/q?pn=${searchResult.pageNum-1 }"
-											aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-										</a></li>
-									</c:if> <c:forEach items="${searchResult.navigatepageNums }"
-										var="page_Num">
-										<c:if test="${page_Num == searchResult.pageNum }">
-											<li class="active"><a href="#">${page_Num }</a>
-											</li>
-										</c:if>
-										<c:if test="${page_Num != searchResult.pageNum }">
-											<li><a href="${APP_PATH}/q?pn=${page_Num }">${page_Num
-													}</a>
-											</li>
-										</c:if>
-									</c:forEach> <c:if test="${searchResult.hasNextPage }">
-										<li><a href="${APP_PATH}/q?pn=${searchResult.pageNum+1 }"
-											aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-										</a></li>
-									</c:if>
-								<li><a href="${APP_PATH}/blogList?pn=${searchResult.pages}">末页</a>
-							</ul>
-							</nav>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 
 		</div>

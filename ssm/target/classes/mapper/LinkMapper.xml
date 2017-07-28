@@ -104,6 +104,19 @@
     values (#{id,jdbcType=INTEGER}, #{linkName,jdbcType=VARCHAR}, #{linkUrl,jdbcType=VARCHAR}, 
       #{orderNo,jdbcType=INTEGER})
   </insert>
+  
+  <!-- list集合 -->
+  <select id="list" parameterType="Map" resultMap="BaseResultMap">
+		select * from link order by orderNo
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<!-- getTotal -->
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from link
+	</select>
   <insert id="insertSelective" parameterType="com.lh.bean.Link">
     insert into link
     <trim prefix="(" suffix=")" suffixOverrides=",">

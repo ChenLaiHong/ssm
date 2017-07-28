@@ -20,7 +20,7 @@
 		  <div class="container-fluid">
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
 		      
-		      <form action="${APP_PATH}/blog/q.html" class="navbar-form navbar-right" role="search" method="post" onsubmit="return checkData()">
+		      <form action="${APP_PATH}/q.do" class="navbar-form navbar-right" role="search" method="post" onsubmit="return checkData()">
 		        <div class="form-group" >
 		          <input type="text" id="q" name="q" value="${q }" class="form-control" placeholder="请输入要查询的关键字...">
 		        </div>

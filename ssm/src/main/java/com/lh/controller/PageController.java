@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lh.bean.Blog;
+import com.lh.bean.Link;
 import com.lh.bean.Type;
 import com.lh.bean.User;
 import com.lh.service.BlogService;
 import com.lh.service.BlogTypeService;
+import com.lh.service.LinkService;
 
 @Controller
 public class PageController {
@@ -25,6 +27,9 @@ public class PageController {
 
 	@Autowired
 	BlogService blogService;
+
+	@Autowired
+	LinkService linkService;
 
 	@RequestMapping("/blogs")
 	public String showPage() {
@@ -71,6 +76,11 @@ public class PageController {
 		return "adminBlogType";
 	}
 
+	@RequestMapping("/toAdminLink")
+	public String toAdminLink() {
+		return "adminLink";
+	}
+
 	// 去写博客页面
 	@RequestMapping("/toWriter")
 	public String toWriter(Model model) {
@@ -86,5 +96,15 @@ public class PageController {
 	@RequestMapping("/toUpdatePass")
 	public String toUpdatePass() {
 		return "updatePass";
+	}
+
+	// 去链接页面
+	@RequestMapping("/toLink")
+	public String toLink(Model model) {
+
+		List<Link> links = linkService.getAll();
+		PageInfo page = new PageInfo(links);// 页码连续两页显示
+		model.addAttribute("linkList", page);
+		return "link";
 	}
 }

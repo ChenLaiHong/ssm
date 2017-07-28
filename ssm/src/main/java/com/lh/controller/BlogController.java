@@ -20,6 +20,7 @@ import com.lh.bean.Blog;
 import com.lh.bean.User;
 import com.lh.lucene.BlogIndex;
 import com.lh.service.BlogService;
+import com.lh.service.BlogTypeService;
 import com.lh.service.CommentService;
 import com.lh.utils.ResponseUtil;
 import com.lh.utils.StringUtil;
@@ -32,6 +33,9 @@ public class BlogController {
 
 	@Autowired
 	CommentService commentService;
+
+	@Autowired
+	BlogTypeService blogTypeService;
 
 	private BlogIndex blogIndex = new BlogIndex();
 

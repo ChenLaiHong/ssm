@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.github.pagehelper.PageInfo;
+import com.lh.bean.PageBean;
 import com.lh.bean.Type;
 import com.lh.service.BlogService;
 import com.lh.service.BlogTypeService;
@@ -35,24 +35,21 @@ public class BlogTypeAdminController {
 	// 列表展示
 	@RequestMapping("/list")
 	public String list(
-			@RequestParam(value = "pn", defaultValue = "1") Integer pn,
+			@RequestParam(value = "page", required = false) String page,
 			@RequestParam(value = "rows", required = false) String rows,
 			HttpServletResponse response) throws Exception {
-
-		// PageHelper.startPage(pn, 5);
-
+		PageBean pageBean = new PageBean(Integer.parseInt(page),
+				Integer.parseInt(rows));
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("start", 1);
-		map.put("size", 10);
+		map.put("start", pageBean.getStart());
+		map.put("size", pageBean.getPageSize());
 		List<Type> blogTypeList = blogTypeService.list(map);
-		PageInfo page = new PageInfo(blogTypeList);
-		Long total = page.getTotal();
+		Long total = blogTypeService.getTotal(map);
 		JSONObject result = new JSONObject();
 		JSONArray jsonArray = JSONArray.fromObject(blogTypeList);
 		result.put("rows", jsonArray);
 		result.put("total", total);
 		ResponseUtil.write(response, result);
-
 		return null;
 	}
 

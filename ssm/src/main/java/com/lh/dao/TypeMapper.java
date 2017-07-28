@@ -44,4 +44,6 @@ public interface TypeMapper {
 	List<Type> countList();
 
 	Type findById(Integer typeId);
+
+	Long getTotal(Map<String, Object> map);
 }

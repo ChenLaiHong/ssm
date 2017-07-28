@@ -36,7 +36,7 @@ public class LoginController {
 
 			return "redirect:/types";//
 			// 如果验证通过了就去indexController中执行types后去到index1页面也就是主页面
-			// return "adminMain"; 去后台的主页
+			// return "adminMain";// 去后台的主页
 		} else {
 
 			request.setAttribute("errorInfo", "用户名或密码错误！");

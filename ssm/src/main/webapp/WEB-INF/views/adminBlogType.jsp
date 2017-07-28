@@ -126,7 +126,7 @@
 				<th field="typeName" width="20" align="center">博客类型名称</th>
 				<th field="describes" width="50" align="center">类别描述</th>
 				<th field="imageName" width="20" align="center" data-options="formatter:formatImg">图片</th>
-				<th field="orderNo" width="10" align="center">排序序号</th>
+				
 			</tr>
 		</thead>
 	</table>
@@ -164,11 +164,6 @@
 					<td><input type="file" id="imageFile" name="imageFile"
 						class="easyui-validatebox" required="true" />
 					</td>
-				</tr>
-				<tr>
-					<td>博客类别排序：</td>
-					<td><input type="text" id="orderNo" name="orderNo"
-						class="easyui-numberbox" required="true" style="width: 60px" />&nbsp;(类别根据排序序号从小到大排序)</td>
 				</tr>
 			</table>
 		</form>

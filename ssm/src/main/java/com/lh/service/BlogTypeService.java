@@ -46,8 +46,13 @@ public class BlogTypeService {
 	}
 
 	public List<Type> countList() {
-		// TODO Auto-generated method stub
+
 		return null;
+	}
+
+	public Long getTotal(Map<String, Object> map) {
+
+		return typeMapper.getTotal(map);
 	}
 
 }

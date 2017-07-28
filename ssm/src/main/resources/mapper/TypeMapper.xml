@@ -102,6 +102,11 @@
 			limit #{start},#{size}
 		</if>
 	</select>
+	
+	<!-- 查询所有 -->
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from type
+	</select>
 	<!-- 查询所有博客类型 以及对应的博客数量 -->
 	<select id="countList" resultMap="BaseResultMap">
 		SELECT t2.typeId,t2.typeName,COUNT(t1.typeId) AS blogCount FROM blog t1 RIGHT JOIN Type t2 ON t1.typeId=t2.typeId GROUP BY t2.typeName order by t2.orderNo;

@@ -31,7 +31,10 @@
   <insert id="add" useGeneratedKeys="true" keyProperty="bid" parameterType="Blog">
 		insert into blog values(null,#{title},#{summary},now(),#{author},0,0,#{content},#{keyWord},#{type.typeId})
 	</insert>
-  
+  <!-- 带类型查找 -->
+  <select id="getBlogByTypeId" parameterType="Integer" resultType="Integer">
+		select count(*) from blog where typeId=#{typeId}
+	</select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

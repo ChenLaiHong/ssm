@@ -23,7 +23,8 @@
           <li><a href="toMain">个人博客</a></li>
           <li><a href="toWriter">写博客</a></li>
           <li><a href="portfolio.html">评论管理</a></li>
-           <li><a href="contact.php">源码下载</a></li>
+          <li><a href="contact.php">源码下载</a></li>
+          <li><a href="toLink">链接</a></li>
           <li><a href="#">设置</a>
             <ul>
               <li><a href="toUpdateUser">修改个人信息</a></li>

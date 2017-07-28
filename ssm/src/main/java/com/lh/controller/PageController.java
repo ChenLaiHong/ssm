@@ -81,4 +81,10 @@ public class PageController {
 		return "writerBlog";
 
 	}
+
+	// 去修改密码页面
+	@RequestMapping("/toUpdatePass")
+	public String toUpdatePass() {
+		return "updatePass";
+	}
 }

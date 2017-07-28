@@ -53,8 +53,9 @@
 				'blog.bid' : '${blog.bid}'
 			}, function(result) {
 				if (result.success) {
-					window.location.reload();
+					
 					alert("评论已提交成功，审核通过后显示！");
+					window.location.reload();
 					resetValue();
 				} else {
 					alert(result.errorInfo);
@@ -166,6 +167,9 @@ body {
 		<img src="${APP_PATH}/static/images/publish_comment_icon.png" /> 发表评论
 	</div>
 	 <input type="hidden" id="uname" name="uname" value="${currentUser.uname }"/>
+	 <c:if test="${currentUser.uname ==null}">
+		<a href="toLogin">去登录</a>
+	</c:if>
 	<div class="publish_comment">
 		<div>
 			<textarea style="width: 100%" rows="3" id="content" name="content"

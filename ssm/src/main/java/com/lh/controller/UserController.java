@@ -4,9 +4,11 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,5 +60,15 @@ public class UserController {
 		JSONObject jsonObject = JSONObject.fromObject(user);
 		ResponseUtil.write(response, jsonObject);
 		return null;
+	}
+
+	// 修改密码
+	@RequestMapping("/updatePass")
+	public String updatePass(HttpServletRequest request, HttpSession httpSession) {
+		String newPassword = request.getParameter("newPassword");
+		User user = (User) httpSession.getAttribute("currentUser");
+		user.setPassword(DigestUtils.md5Hex(newPassword));
+		userService.updateByPrimaryKeySelective(user);
+		return "redirect:/toMain";
 	}
 }

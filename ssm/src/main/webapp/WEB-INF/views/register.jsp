@@ -74,10 +74,10 @@
 						</div>
 						<div class="form-group">
 							<label class="radio-inline">
-  								<input type="radio" name="sex" id="sex1" value="0"> 男
+  								<input type="radio" name="sex" id="sex1" value="男"> 男
 							</label>
 							<label class="radio-inline">
-  								<input type="radio" name="sex" id="sex2" value="1"> 女
+  								<input type="radio" name="sex" id="sex2" value="女"> 女
 							</label>
 						</div>
 						<div class="form-group">

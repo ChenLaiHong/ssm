@@ -1,6 +1,7 @@
 package com.lh.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -33,4 +34,8 @@ public interface UserMapper {
 	int updateByPrimaryKeySelective(User record);
 
 	int updateByPrimaryKey(User record);
+
+	List<User> list(Map<String, Object> map);
+
+	Long getTotal(Map<String, Object> map);
 }

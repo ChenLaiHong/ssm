@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.lh.bean.Link;
 import com.lh.bean.LinkExample;
+import com.lh.utils.PageData;
 
 public interface LinkMapper {
 	long countByExample(LinkExample example);
@@ -36,4 +37,13 @@ public interface LinkMapper {
 	List<Link> list(Map<String, Object> map);
 
 	Long getTotal(Map<String, Object> map);
+
+	List<PageData> findForList(String string, PageData pd);
+
+	int del(Integer id);
+
+	void batchInsert(List<Link> linkList);
+
+	List<Link> getLinkList();
+
 }

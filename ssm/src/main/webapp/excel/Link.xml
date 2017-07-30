@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook>
+<worksheet name="Sheet1">
+<section endRow="0" startRow="0"/>
+<loop endRow="1" startRow="1" varType="com.lh.bean.Link" var="Link" items="Link">
+<section endRow="1" startRow="1">
+<mapping cell="A2">Link.id</mapping>
+<mapping cell="A2">Link.linkName</mapping>
+<mapping cell="B2">Link.linkUrl</mapping>
+<mapping cell="B2">Link.orderNo</mapping>
+</section>
+<loopbreakcondition>
+<rowcheck offset="0">
+<cellcheck offset="0"/>
+</rowcheck>
+</loopbreakcondition>
+</loop>
+</worksheet>
+</workbook>

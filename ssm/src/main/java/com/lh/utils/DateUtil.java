@@ -3,6 +3,12 @@ package com.lh.utils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 日期工具类
+ * 
+ * @author Administrator
+ * 
+ */
 public class DateUtil {
 
 	/**
@@ -42,5 +48,12 @@ public class DateUtil {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 		return sdf.format(date);
 	}
+
+	/**
+	 * 获取系统当前时间（分）
+	 * 
+	 * @author cmt
+	 * @return
+	 */
 
 }

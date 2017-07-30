@@ -32,20 +32,25 @@ public class CommentController {
 		JSONObject result = new JSONObject();
 		int resultTotal = 0; // 操作的记录条数
 		User user = (User) session.getAttribute("currentUser");
-		String author = user.getUname();
+		if (user != null) {
+			String author = user.getUname();
 
-		if (comment.getCid() == null) {
-			comment.setAuthor(author);
-			resultTotal = commentService.add(comment);
-			// 该博客的回复次数加1
-			Blog blog = blogService.findByBid(comment.getBlog().getBid());
-			blog.setReplyHit(blog.getReplyHit() + 1);
-			blogService.update(blog);
-		} else {
+			if (comment.getCid() == null) {
+				comment.setAuthor(author);
+				resultTotal = commentService.add(comment);
+				// 该博客的回复次数加1
+				Blog blog = blogService.findByBid(comment.getBlog().getBid());
+				blog.setReplyHit(blog.getReplyHit() + 1);
+				blogService.update(blog);
+			} else {
 
-		}
-		if (resultTotal != 0) {
-			result.put("success", true);
+			}
+
+			if (resultTotal != 0) {
+				result.put("success", true);
+			} else {
+				result.put("success", false);
+			}
 		} else {
 			result.put("success", false);
 		}

@@ -5,7 +5,7 @@
     <id column="uid" jdbcType="INTEGER" property="uid" />
     <result column="uname" jdbcType="VARCHAR" property="uname" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="sign" jdbcType="VARCHAR" property="sign" />
@@ -94,6 +94,19 @@
     where uid = #{uid,jdbcType=INTEGER}
   </select>
   
+   <!-- list集合 -->
+  <select id="list" parameterType="Map" resultMap="BaseResultMap">
+		select * from user
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<!-- getTotal -->
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from user
+	</select>
+	
    <!-- 根据名字查询 -->
   <select id="findUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -117,7 +130,7 @@
       sign, proFile, imageName
       )
     values (#{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{sign,jdbcType=VARCHAR}, #{proFile,jdbcType=VARCHAR}, #{imageName,jdbcType=VARCHAR}
       )
   </insert>
@@ -201,7 +214,7 @@
         password = #{record.password,jdbcType=VARCHAR},
       </if>
       <if test="record.sex != null">
-        sex = #{record.sex,jdbcType=INTEGER},
+        sex = #{record.sex,jdbcType=VARCHAR},
       </if>
       <if test="record.phone != null">
         phone = #{record.phone,jdbcType=VARCHAR},
@@ -228,7 +241,7 @@
     set uid = #{record.uid,jdbcType=INTEGER},
       uname = #{record.uname,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
-      sex = #{record.sex,jdbcType=INTEGER},
+      sex = #{record.sex,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
       sign = #{record.sign,jdbcType=VARCHAR},
@@ -248,7 +261,7 @@
         password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
-        sex = #{sex,jdbcType=INTEGER},
+        sex = #{sex,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
@@ -272,7 +285,7 @@
     update user
     set uname = #{uname,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       sign = #{sign,jdbcType=VARCHAR},

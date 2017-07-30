@@ -42,12 +42,10 @@
 <script type="text/javascript">
 	function submitData() {
 		var content = $("#content").val();
-		var uname  = document.getElementById('uname');
 		if (content == null || content == '') {
 			alert("请输入评论内容！");
-		} else if(uname == null){
-			alert("请先登录再进行评论！");
-		}else {
+		} 
+		else {
 			$.post("${APP_PATH}/comment/save.do", {
 				'content' : content,
 				'blog.bid' : '${blog.bid}'
@@ -58,7 +56,7 @@
 					window.location.reload();
 					resetValue();
 				} else {
-					alert(result.errorInfo);
+					alert("请先登录再进行评论！");
 				}
 			}, "json");
 		}
@@ -166,9 +164,8 @@ body {
 	<div class="data_list_title">
 		<img src="${APP_PATH}/static/images/publish_comment_icon.png" /> 发表评论
 	</div>
-	 <input type="hidden" id="uname" name="uname" value="${currentUser.uname }"/>
 	 <c:if test="${currentUser.uname ==null}">
-		<a href="toLogin">去登录</a>
+		<a href="${APP_PATH}/toLogin.do">去登录</a>
 	</c:if>
 	<div class="publish_comment">
 		<div>

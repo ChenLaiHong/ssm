@@ -3,6 +3,7 @@ package com.lh.utils;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class StringUtil {
 	public static String str;
@@ -103,6 +104,16 @@ public class StringUtil {
 			}
 		}
 		return resultList;
+	}
+
+	public static String generateRandomString(int len) {
+		char mm[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+		StringBuffer sb = new StringBuffer();
+		Random random = new Random();
+		for (int i = 0; i < len; i++)
+			sb.append(mm[random.nextInt(mm.length)]);
+
+		return sb.toString();
 	}
 
 }

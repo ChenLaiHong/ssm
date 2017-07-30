@@ -88,8 +88,8 @@ public class BlogController {
 		map.put("bid", blog.getBid());
 		map.put("state", 1); // 查询审核通过的评论
 		mav.addObject("commentList", commentService.list(map));
-		// mav.addObject("mainPage", "onlyView.jsp");
-		mav.setViewName("onlyView");
+
+		mav.setViewName("onlyView");// 把数据在onlyView.jsp页面展示
 		return mav;
 	}
 

@@ -81,6 +81,11 @@ public class PageController {
 		return "adminLink";
 	}
 
+	@RequestMapping("/toAdminUser")
+	public String toAdminUser() {
+		return "adminUser";
+	}
+
 	// 去写博客页面
 	@RequestMapping("/toWriter")
 	public String toWriter(Model model) {

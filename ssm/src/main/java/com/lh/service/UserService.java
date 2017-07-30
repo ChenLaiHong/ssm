@@ -1,6 +1,7 @@
 package com.lh.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -66,6 +67,16 @@ public class UserService {
 
 	public User find(int uid) {
 		return userMapper.selectByPrimaryKey(uid);
+	}
+
+	public List<User> list(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return userMapper.list(map);
+	}
+
+	public Long getTotal(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return userMapper.getTotal(map);
 	}
 
 }

@@ -126,7 +126,7 @@
 				<th field="typeName" width="20" align="center">博客类型名称</th>
 				<th field="describes" width="50" align="center">类别描述</th>
 				<th field="imageName" width="20" align="center" data-options="formatter:formatImg">图片</th>
-				
+				<th field="orderNo" width="20" align="center">排序序号</th>
 			</tr>
 		</thead>
 	</table>
@@ -138,6 +138,8 @@
 				class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a> <a
 				href="javascript:deleteBlogType()" class="easyui-linkbutton"
 				iconCls="icon-remove" plain="true">删除</a>
+				<a href="javascript:openBlogTypeDownloadDialog()"
+				class="easyui-linkbutton" iconCls="icon-redo" plain="true">导出</a>
 		</div>
 	</div>
 
@@ -165,6 +167,11 @@
 						class="easyui-validatebox" required="true" />
 					</td>
 				</tr>
+				<tr>
+   			       <td>友情链接排序：</td>
+   			       <td><input type="text" id="orderNo" name="orderNo" 
+   			       class="easyui-numberbox" required="true" style="width: 60px"/>&nbsp;(类型根据排序序号从小到大排序)</td>
+   		       </tr>
 			</table>
 		</form>
 	</div>

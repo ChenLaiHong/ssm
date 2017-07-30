@@ -113,6 +113,34 @@
 		</if>
 	</select>
 	
+	 <!-- 执行批量导入操作 -->
+  <insert id="batchInsert" parameterType="ArrayList">
+  	INSERT INTO link(
+  			 id,
+  			 linkName,
+  			 linkUrl,
+  			 orderNo) 
+	<foreach collection="list" item="item" index="index" separator="union all">
+	 	SELECT 
+	 		#{item.id, jdbcType=INTEGER},
+	 		#{item.linkName, jdbcType=VARCHAR},
+	 		#{item.linkUrl, jdbcType=VARCHAR},
+			#{item.orderNo, jdbcType=INTEGER}
+		FROM link
+	</foreach>	  	 
+  </insert>
+  
+  <delete id="del" parameterType="String">
+  	
+  	delete from user where id = #{id,jdbcType=VARCHAR}
+  
+  </delete>
+  
+   <select id="getLinkList" parameterType="int" resultMap="BaseResultMap">
+        <![CDATA[
+          select * from link
+        ]]>
+</select>
 	<!-- getTotal -->
 	<select id="getTotal" parameterType="Map" resultType="Long">
 		select count(*) from link

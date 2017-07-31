@@ -5,9 +5,9 @@
 <loop endRow="1" startRow="1" varType="com.lh.bean.Link" var="Link" items="Link">
 <section endRow="1" startRow="1">
 <mapping cell="A2">Link.id</mapping>
-<mapping cell="A2">Link.linkName</mapping>
-<mapping cell="B2">Link.linkUrl</mapping>
-<mapping cell="B2">Link.orderNo</mapping>
+<mapping cell="B2">Link.linkName</mapping>
+<mapping cell="C2">Link.linkUrl</mapping>
+<mapping cell="D2">Link.orderNo</mapping>
 </section>
 <loopbreakcondition>
 <rowcheck offset="0">

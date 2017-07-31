@@ -86,6 +86,16 @@ public class PageController {
 		return "adminUser";
 	}
 
+	@RequestMapping("/toAdminComment")
+	public String toAdminComment() {
+		return "adminComment";
+	}
+
+	@RequestMapping("/toAdminCommentRead")
+	public String toAdminCommentRead() {
+		return "adminCommentRead";
+	}
+
 	// 去写博客页面
 	@RequestMapping("/toWriter")
 	public String toWriter(Model model) {

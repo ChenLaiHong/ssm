@@ -126,13 +126,18 @@
 	 		#{item.linkName, jdbcType=VARCHAR},
 	 		#{item.linkUrl, jdbcType=VARCHAR},
 			#{item.orderNo, jdbcType=INTEGER}
-		FROM link
+		FROM DUAL
 	</foreach>	  	 
   </insert>
-  
+  <!-- 导入数据库 -->
+  <insert id="addLinkTo" parameterType="com.lh.bean.Link">
+  	INSERT INTO link(id,linkName,linkUrl,orderNo) 
+  	values (#{id,jdbcType=INTEGER}, #{linkName,jdbcType=VARCHAR}, #{linkUrl,jdbcType=VARCHAR}, 
+      #{orderNo,jdbcType=INTEGER})
+  </insert>
   <delete id="del" parameterType="String">
   	
-  	delete from user where id = #{id,jdbcType=VARCHAR}
+  	delete from link where id = #{id,jdbcType=VARCHAR}
   
   </delete>
   

@@ -133,8 +133,8 @@
 			<a href="javascript:openTab('博客类别信息管理','toAdminBlogType.do','icon-bklb')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bklb'" style="width: 150px;">博客类别信息管理</a>
 		</div>
 		<div title="评论管理"  data-options="iconCls:'icon-plgl'" style="padding:10px">
-			<a href="javascript:openTab('评论审核','commentReview.jsp','icon-review')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-review'" style="width: 150px">评论审核</a>
-			<a href="javascript:openTab('评论信息管理','commentManage.jsp','icon-plgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-plgl'" style="width: 150px;">评论信息管理</a>
+			<a href="javascript:openTab('评论审核','toAdminCommentRead.do','icon-review')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-review'" style="width: 150px">评论审核</a>
+			<a href="javascript:openTab('评论信息管理','toAdminComment.do','icon-plgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-plgl'" style="width: 150px;">评论信息管理</a>
 		</div>
 		<div title="个人信息管理"  data-options="iconCls:'icon-grxx'" style="padding:10px">
 			<a href="javascript:openTab('修改个人信息','modifyInfo.jsp','icon-grxxxg')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-grxxxg'" style="width: 150px;">修改个人信息</a>

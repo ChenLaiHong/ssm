@@ -55,47 +55,12 @@
 	}
 	
 	//执行批量导入功能/////////////////////////////////////////
-    function importSubmit(){
-    		var link = $.trim($("#link").val());
-    	if(link == "") {
-    		top.$.messager.alert("提示信息", "请选择要批量导入的excel文件!", "error");
-    		return;
-    	}
-    	$("#fi").form("submit", {
-    	    url: "${APP_PATH}/admin/link/upload.do",
-    	    onSubmit: function() {
-    	    	showDiv("批量导入时间较长，请耐心等待，勿作其它操作，谢谢！");
-    	    },
-    	    success: function(result) {
-    	    	var date = eval('('+result+')');
-    	        if(date.status == "ok") {
-    	        	closeDiv(); //关闭提示信息框
-    	        	top.$.messager.alert("提示信息", date.message, "info", function() {
-    	        		winClose();
-    					grid.datagrid("reload");
-    					
-    				});
-    	        } else if(date.status == "fail") {
-    	        	closeDiv(); //关闭提示信息框
-    	        	winClose(); //关闭对话框
-    	        	top.$.messager.alert("提示信息", date.message, "error");
-    	        	return;
-    	        }
-    	    },
-    	    error: function() {
-    	    	closeDiv(); //关闭提示信息框
-            	winClose(); //关闭对话框
-            	return;
-    	    }
-    	});
-    	
-    }; 
-    function winClose() {
-    	$("#upl").window("close");
-    	resetValue();
+      function winClose() {
+    	 $("#upl").dialog("close");
+		 resetValue();
     }
     
-     var showDiv = function(str) {    
+    var showDiv = function(str) {    
     	var msgw = 350;
         var msgh = 90; 
         var bordercolor;
@@ -168,6 +133,44 @@
     };
     
     
+    
+  //执行批量导入功能
+    function importSubmit(){
+    		var link = $.trim($("#link").val());
+    	if(link == "") {
+    		top.$.messager.alert('提示信息', '请选择要批量导入的excel文件!', 'error');
+    		return;
+    	}
+    	$("#fi").form("submit", {
+    	    url: "${APP_PATH}/admin/link/read",
+    	    onSubmit: function() {
+    	    	showDiv("批量导入时间较长，请耐心等待，勿作其它操作，谢谢！");
+    	    },
+    	    success: function(result) {
+    	    	var date = eval('('+result+')');
+    	        if(date.status == "ok") {
+    	        	closeDiv(); //关闭提示信息框
+    	        	top.$.messager.alert('提示信息', date.message, 'info', function() {
+    	        		winClose();
+    					grid.datagrid("reload");
+    					
+    				});
+    	        } else if(date.status == "fail") {
+    	        	closeDiv(); //关闭提示信息框
+    	        	winClose(); //关闭对话框
+    	        	top.$.messager.alert('提示信息', date.message, 'error');
+    	        	return;
+    	        }
+    	    },
+    	    error: function() {
+    	    	closeDiv(); //关闭提示信息框
+            	winClose(); //关闭对话框
+            	return;
+    	    }
+    	});
+    	
+    }; 
+    
     /////////////////////////////////////////////
 	
 	function openLinkModifyDialog(){
@@ -239,11 +242,15 @@
  		<a href="javascript:openLink()" class="easyui-linkbutton" iconCls="icon-print" plain="true">上传</a>
  	</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
  </div>
- <div id="upl" class="easyui-dialog" style="width:500px;height:200px;padding: 10px 20px" closed="true" buttons="#upl-buttons">
-			<form id="fi" enctype="multipart/form-data" method="post">
+  <div id="upl" class="easyui-dialog" style="width:500px;height:200px;padding: 10px 20px"
+   closed="true" buttons="#upl-buttons">
+   
+   <form id="fi"  enctype="multipart/form-data" method="post">
+   	<table cellspacing="8px">
 				选择文件：<input type="file" name="link" id="link" />
-			</form>
-</div>
+   	</table>
+   </form>
+ </div>
  
  <div id="dlg" class="easyui-dialog" style="width:500px;height:200px;padding: 10px 20px"
    closed="true" buttons="#dlg-buttons">
@@ -271,8 +278,8 @@
  	<a href="javascript:closeLinkDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
  </div>
  <div id="upl-buttons">
-	<a href="javascript:importSubmit()" class="easyui-linkbutton" iconCls="icon-ok">导入</a>
-	<a href="javascript:winClose()" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>		
-</div>
+ 	<a href="javascript:importSubmit()" class="easyui-linkbutton" iconCls="icon-ok">导入</a>
+ 	<a href="javascript:winClose()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+ </div>
 </body>
 </html>

@@ -24,7 +24,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -110,8 +109,9 @@ public class LinkAdminController {
 		IOUtils.copy(is, output);
 	}
 
+	// 导入到数据库
 	@ResponseBody
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	@RequestMapping("/read")
 	public Map<String, String> read(HttpServletRequest request) {
 		// Map<String ,String> result = new HashMap<String ,String>();
 		Map<String, String> result = new HashMap<String, String>();
@@ -142,7 +142,7 @@ public class LinkAdminController {
 					FileCopyUtils.copy(bfile, readFile);
 
 					// 5、执行excel文件的读取
-					String xmlConfig = path + "excel\\Link.xml";
+					String xmlConfig = path + "excel\\xmlConfig\\Link.xml";
 					String dataXLS = path + "/upload/" + fileName + suffix;
 					inputXML = new FileInputStream(xmlConfig);
 					XLSReader mainReader = ReaderBuilder.buildFromXML(inputXML);
@@ -173,7 +173,7 @@ public class LinkAdminController {
 							for (int j = 0; j < InfoMobleList.size(); j++) {
 								temp = InfoMobleList.get(j);
 								if (temp.getId() != null) {
-									if (temp.getId() == ins.getId()) {
+									if (temp.getId().equals(ins.getId())) {
 										linkService.del(ins.getId());
 									}
 								}

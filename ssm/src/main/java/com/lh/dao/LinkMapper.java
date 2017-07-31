@@ -46,4 +46,6 @@ public interface LinkMapper {
 
 	List<Link> getLinkList();
 
+	int addLinkTo(Link link);
+
 }

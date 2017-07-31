@@ -11,7 +11,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-httpclient-3.0-rc4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/json.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-fileupload-1.3.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-io-2.4.jar"/>
@@ -20,6 +19,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ssstool.jar" sourcepath="src/main/webapp/WEB-INF/lib/ssstool.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jxls-reader-1.0.2.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-jexl-2.0.1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>

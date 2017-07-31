@@ -9,6 +9,16 @@
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="bid" jdbcType="INTEGER" property="bid" />
   </resultMap>
+  
+  
+	<resultMap type="com.lh.bean.Comment" id="CommentResult">
+		 <id column="cid" jdbcType="INTEGER" property="cid" />
+   		 <result column="content" jdbcType="VARCHAR" property="content" />
+    	 <result column="author" jdbcType="VARCHAR" property="author" />
+    	 <result column="commentDate" jdbcType="TIMESTAMP" property="commentDate" />
+    	 <result column="state" jdbcType="INTEGER" property="state" />
+		<association property="blog" column="bid" select="com.lh.dao.BlogMapper.selectByPrimaryKey"></association>
+	</resultMap>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -71,7 +81,7 @@
     cid, content, author, commentDate, state, bid
   </sql>
   
-  <select id="list" parameterType="Map" resultMap="BaseResultMap">
+  <select id="list" parameterType="Map" resultMap="CommentResult">
 		select * from comment
 		<where>
 			<if test="bid!=null">
@@ -86,7 +96,15 @@
 			limit #{start},#{size}
 		</if>
 	</select>
-	
+	<!-- 所有状态 -->
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from comment
+		<where>
+			<if test="state!=null">
+				and state=#{state}
+			</if>
+		</where>
+	</select>
   <select id="selectByExample" parameterType="com.lh.bean.CommentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">

@@ -36,4 +36,6 @@ public interface CommentMapper {
 	int updateByPrimaryKey(Comment record);
 
 	int add(Comment comment);
+
+	Long getTotal(Map<String, Object> map);
 }

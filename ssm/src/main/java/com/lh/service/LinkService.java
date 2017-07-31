@@ -64,6 +64,7 @@ public class LinkService {
 
 	}
 
+	// 导出用到
 	public InputStream getInputStream() throws Exception {
 		String[] title = new String[] { "Id", "linkName", "linkUrl", "orderNo" };
 		List<Link> plist = linkMapper.getLinkList();

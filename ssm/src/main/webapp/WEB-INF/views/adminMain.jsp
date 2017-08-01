@@ -136,8 +136,8 @@
 			<a href="javascript:openTab('评论审核','toAdminCommentRead.do','icon-review')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-review'" style="width: 150px">评论审核</a>
 			<a href="javascript:openTab('评论信息管理','toAdminComment.do','icon-plgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-plgl'" style="width: 150px;">评论信息管理</a>
 		</div>
-		<div title="个人信息管理"  data-options="iconCls:'icon-grxx'" style="padding:10px">
-			<a href="javascript:openTab('修改个人信息','modifyInfo.jsp','icon-grxxxg')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-grxxxg'" style="width: 150px;">修改个人信息</a>
+		<div title="发邮件"  data-options="iconCls:'icon-grxx'" style="padding:10px">
+			<a href="javascript:openTab('发邮件','toEmail','icon-grxxxg')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-grxxxg'" style="width: 150px;">修改个人信息</a>
 		</div>
 		<div title="系统管理"  data-options="iconCls:'icon-system'" style="padding:10px">
 		    <a href="javascript:openTab('友情链接管理','toAdminLink.do','icon-link')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-link'" style="width: 150px">友情链接管理</a>

@@ -22,7 +22,7 @@
         <ul class="sf-menu" id="nav">
           <li><a href="toMain">个人博客</a></li>
           <li><a href="toWriter">写博客</a></li>
-          <li><a href="portfolio.html">评论管理</a></li>
+          <li><a href="tocomment">查看评论</a></li>
           <li><a href="contact.php">源码下载</a></li>
           <li><a href="toLink">链接</a></li>
           <li><a href="#">设置</a>

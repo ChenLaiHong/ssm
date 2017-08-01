@@ -92,6 +92,14 @@
 		 $("#dlg").dialog("close");
 		 resetValue();
 	 }
+	 
+	 function formatEmail(val,row,index){
+		if(val==null){
+			return "<font color='red'>没有填写邮箱！</font>";
+		}else{
+			return "<a target='_blank' href='${APP_PATH}/admin/email/goSendEmail.do?email="+row.email+"'>"+row.email+"</a>";			
+		}
+	}
 </script>
 </head>
 <body style="margin: 1px">
@@ -105,7 +113,7 @@
    		<th field="uname" width="100" align="center">用户名</th>
    		<th field="sex" width="20" align="center">性别</th>
    		<th field="phone" width="100" align="center">电话</th>
-   		<th field="email" width="100" align="center">邮箱</th>
+   		<th field="email" width="100" align="center" formatter="formatEmail">邮箱</th>
    		<th field="sign" width="100" align="center">个性签名</th>
    	</tr>
    </thead>

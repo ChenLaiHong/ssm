@@ -96,6 +96,11 @@ public class PageController {
 		return "adminCommentRead";
 	}
 
+	@RequestMapping("/toEmail")
+	public String toEmail() {
+		return "send_email";
+	}
+
 	// 去写博客页面
 	@RequestMapping("/toWriter")
 	public String toWriter(Model model) {

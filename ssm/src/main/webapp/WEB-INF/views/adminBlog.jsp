@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>博客</title>
+<title>后台查看博客</title>
 
 <%
  pageContext.setAttribute("APP_PATH",request.getContextPath());
@@ -40,36 +40,10 @@
 	})();
 </script>
 <script type="text/javascript">
-	function submitData() {
-		var content = $("#content").val();
-		if (content == null || content == '') {
-			alert("请输入评论内容！");
-		} 
-		else {
-			$.post("${APP_PATH}/comment/save.do", {
-				'content' : content,
-				'blog.bid' : '${blog.bid}'
-			}, function(result) {
-				if (result.success) {
-					
-					alert("评论已提交成功，审核通过后显示！");
-					window.location.reload();
-					resetValue();
-				} else {
-					alert("请先登录再进行评论！");
-				}
-			}, "json");
-		}
-	}
-
 	function showOtherComment() {
 		$('.otherComment').show();
 	}
 	
-	// 重置数据
-	function resetValue(){
-		$("#content").val("");
-	}
 </script>
 <style type="text/css">
 body {
@@ -80,9 +54,6 @@ body {
 </head>
 <body>
 	<div class="container">
-
-		<jsp:include page="/common/search.jsp" />
-
 		<div class="row">
 			<div class="col-md-12">
 			<div class="data_list">
@@ -157,26 +128,6 @@ body {
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
-	</div>
-</div>
-
-<div class="data_list">
-	<div class="data_list_title">
-		<img src="${APP_PATH}/static/images/publish_comment_icon.png" /> 发表评论
-	</div>
-	 <c:if test="${currentUser.uname ==null}">
-		<a href="${APP_PATH}/toLogin.do">去登录</a>
-	</c:if>
-	<div class="publish_comment">
-		<div>
-			<textarea style="width: 100%" rows="3" id="content" name="content"
-				placeholder="智慧如你，不想发表一点想法咩~ "></textarea>
-		</div>
-
-		<div class="publishButton">
-			<button class="btn btn-primary" type="button" onclick="submitData()">发表评论</button>
-		</div>
-		</form>
 	</div>
 </div>
 		    </div>

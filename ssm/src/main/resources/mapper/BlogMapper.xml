@@ -35,6 +35,40 @@
   <select id="getBlogByTypeId" parameterType="Integer" resultType="Integer">
 		select count(*) from blog where typeId=#{typeId}
 	</select>
+	
+	<select id="list" parameterType="Map" resultMap="BlogResult">
+		select * from blog
+		<where>
+		    <if test="title!=null and title!='' ">
+				and title like #{title}
+			</if>
+			<if test="typeId!=null and typeId!='' ">
+				and typeId = #{typeId}
+			</if>
+			<if test="releaseDateStr!=null and releaseDateStr!='' ">
+				and DATE_FORMAT(releaseDate,'%Y年%m月') = #{releaseDateStr}
+			</if>
+		</where>
+		order by releaseDate desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from blog
+		<where>
+		    <if test="title!=null and title!='' ">
+				and title like #{title}
+			</if>
+			<if test="typeId!=null and typeId!='' ">
+				and typeId = #{typeId}
+			</if>
+			<if test="releaseDateStr!=null and releaseDateStr!='' ">
+				and DATE_FORMAT(releaseDate,'%Y年%m月') = #{releaseDateStr}
+			</if>
+		</where>
+	</select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -110,7 +144,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BlogResult">
     select 
     <include refid="Base_Column_List" />
     from blog

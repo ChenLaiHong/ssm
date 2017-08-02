@@ -1,6 +1,7 @@
 package com.lh.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,6 +56,17 @@ public class BlogService {
 	public void update(Blog blog) {
 		blogMapper.updateByPrimaryKeySelective(blog);
 
+	}
+
+	public List<Blog> list(Map<String, Object> map) {
+
+		return blogMapper.list(map);
+
+	}
+
+	public Long getTotal(Map<String, Object> map) {
+
+		return blogMapper.getTotal(map);
 	}
 
 }

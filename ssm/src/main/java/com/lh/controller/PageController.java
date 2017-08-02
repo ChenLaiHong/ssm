@@ -118,6 +118,12 @@ public class PageController {
 		return "updatePass";
 	}
 
+	// 去后台查看博客列表页面
+	@RequestMapping("/toAdminBlogLook")
+	public String toAdminBlogLook() {
+		return "adminBlogLook";
+	}
+
 	// 去链接页面
 	@RequestMapping("/toLink")
 	public String toLink(Model model) {

@@ -46,7 +46,7 @@
 		if(val==null){
 			return "<font color='red'>该博客已被删除！</font>";
 		}else{
-			return "<a target='_blank' href='${APP_PATH}/blog/articles/"+val.id+".do'>"+val.title+"</a>";			
+			return "<a target='_blank' href='${APP_PATH}/adminBlog/articles/"+val.bid+".do'>"+val.title+"</a>";			
 		}
 	}
 	

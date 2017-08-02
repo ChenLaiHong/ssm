@@ -27,7 +27,6 @@ public class JavaEmailSender {
 		// 发送邮件协议名称
 		props.setProperty("mail.transport.protocol", "smtp");
 
-		/** SSL认证，注意腾讯邮箱是基于SSL加密的，所有需要开启才可以使用 **/
 		MailSSLSocketFactory sf = new MailSSLSocketFactory();
 		sf.setTrustAllHosts(true);
 		props.put("mail.smtp.ssl.enable", "true");
@@ -36,10 +35,9 @@ public class JavaEmailSender {
 		// 创建会话
 		Session session = Session.getInstance(props);
 
-		// 发送的消息，基于观察者模式进行设计的
+		// 发送的消息
 		Message msg = new MimeMessage(session);
 		msg.setSubject(emailTitle);
-		// 使用StringBuilder，因为StringBuilder加载速度会比String快，而且线程安全性也不错
 		StringBuilder builder = new StringBuilder();
 		builder.append("\n" + emailContent);
 		builder.append("\n时间 " + new Date());
@@ -48,7 +46,7 @@ public class JavaEmailSender {
 
 		Transport transport = session.getTransport();
 		transport.connect("smtp.qq.com", "1185630400@qq.com",
-				"arrojgiudlpdjfcb");
+				"arrojgiudlpdjfcb");// 密码不是登录邮箱的密码，是开启SMTP时的授权码
 		// 发送消息
 		transport.sendMessage(msg, new Address[] { new InternetAddress(
 				toEmailAddress) });

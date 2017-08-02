@@ -1,9 +1,9 @@
 package com.lh.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lh.utils.JavaEmailSender;
+import com.lh.utils.ResponseUtil;
 
 @Controller
 @RequestMapping("/admin/email")
@@ -45,15 +46,17 @@ public class EmailController {
 	 */
 	@RequestMapping(value = "/sendEmail", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public Object sendEmail(HttpServletRequest request) throws Exception {
-		Map<String, String> map = new HashMap<String, String>();
-		String msg = "ok"; // 发送状态
+	public String sendEmail(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		// Map<String, String> map = new HashMap<String, String>();
+		JSONObject result = new JSONObject();
 		String toEMAIL = request.getParameter("EMAIL"); // 对方邮箱
 		String TITLE = request.getParameter("TITLE"); // 标题
 		String CONTENT = request.getParameter("CONTENT"); // 内容
 		JavaEmailSender.sendEmail(toEMAIL, TITLE, CONTENT);
-		map.put("result", msg);
-		return map;
+		result.put("success", true);
+		ResponseUtil.write(response, result);
+		return null;
 	}
 
 	public ModelAndView getModelAndView() {

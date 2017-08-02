@@ -152,7 +152,7 @@
     	        	closeDiv(); //关闭提示信息框
     	        	top.$.messager.alert('提示信息', date.message, 'info', function() {
     	        		winClose();
-    					grid.datagrid("reload");
+    					$("#dg").datagrid("reload");
     					
     				});
     	        } else if(date.status == "fail") {

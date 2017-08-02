@@ -112,9 +112,10 @@ public class LinkAdminController {
 	// 导入到数据库
 	@ResponseBody
 	@RequestMapping("/read")
-	public Map<String, String> read(HttpServletRequest request) {
-		// Map<String ,String> result = new HashMap<String ,String>();
-		Map<String, String> result = new HashMap<String, String>();
+	public String read(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// 带结果到页面
+		JSONObject result = new JSONObject();
 		// 1、转换文件上传的servlet
 		MultipartHttpServletRequest msRequest = (MultipartHttpServletRequest) request;
 
@@ -208,7 +209,7 @@ public class LinkAdminController {
 			result.put("status", "fail");
 			result.put("message", "没有选择要批量导入的excel文件！ ");
 		}
-
-		return result;
+		ResponseUtil.write(response, result);
+		return null;
 	}
 }

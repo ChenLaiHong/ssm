@@ -20,19 +20,17 @@
 			</c:if></div>
     <nav>
         <ul class="sf-menu" id="nav">
-          <li><a href="toMain">个人博客</a></li>
-          <li><a href="toWriter">写博客</a></li>
-          <li><a href="tocomment">查看评论</a></li>
-          <li><a href="contact.php">源码下载</a></li>
-          <li><a href="toLink">链接</a></li>
+          <li><a href="${APP_PATH}/toMain.do">个人博客</a></li>
+          <li><a href="${APP_PATH}/toWriter.do">写博客</a></li>
+          <li><a href="${APP_PATH}/toLink.do">链接</a></li>
           <li><a href="#">设置</a>
-            <ul>
-              <li><a href="toUpdateUser">修改个人信息</a></li>
-              <li><a href="toUpdatePass">修改密码</a> </li>
-              <li><a href="${APP_PATH}/loginout.do">安全退出</a> </li>
-            </ul>
+         	<ul>
+          		<li><a href="${APP_PATH}/toUpdateUser.do">修改个人信息</a></li>
+          		<li><a href="${APP_PATH}/toUpdatePass.do">修改密码</a> </li>
+          	</ul>
           </li>
-           <li><a href="${APP_PATH}/types.do">返回列表页</a></li>
+          <li><a href="${APP_PATH}/types.do">返回列表页</a></li>
+          <li><a href="${APP_PATH}/loginout.do">安全退出</a> </li>
         </ul>
       </nav>
       </header>

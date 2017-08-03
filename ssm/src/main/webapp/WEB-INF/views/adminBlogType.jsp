@@ -138,8 +138,6 @@
 				class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a> <a
 				href="javascript:deleteBlogType()" class="easyui-linkbutton"
 				iconCls="icon-remove" plain="true">删除</a>
-				<a href="javascript:openBlogTypeDownloadDialog()"
-				class="easyui-linkbutton" iconCls="icon-redo" plain="true">导出</a>
 		</div>
 	</div>
 

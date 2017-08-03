@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lh.bean.Blog;
@@ -90,6 +91,48 @@ public class BlogController {
 		mav.addObject("commentList", commentService.list(map));
 
 		mav.setViewName("onlyView");// 把数据在onlyView.jsp页面展示
+		return mav;
+	}
+
+	// 删除博客信息
+	@RequestMapping("/delete")
+	public String delete(@RequestParam(value = "bid") String ids,
+			HttpServletResponse response) throws Exception {
+		String[] idsStr = ids.split(",");
+		for (int i = 0; i < idsStr.length; i++) {
+			blogService.delete(Integer.parseInt(idsStr[i]));
+			blogIndex.deleteIndex(idsStr[i]); // 删除对应博客的索引
+			commentService.deleteByBid(Integer.parseInt(idsStr[i]));
+		}
+		// JSONObject result = new JSONObject();
+		// result.put("success", true);
+		// ResponseUtil.write(response, result);
+		return "redirect:/toMain";
+	}
+
+	@RequestMapping("/selfBlog/articles/{bid}")
+	public ModelAndView selfBlog(@PathVariable("bid") Integer bid,
+			HttpServletRequest request) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
+		Blog blog = blogService.findByBid(bid);
+		String keyWords = blog.getKeyWord();
+		if (StringUtil.isNotEmpty(keyWords)) {
+			String arr[] = keyWords.split(" ");
+			mav.addObject("keyWords",
+					StringUtil.filterWhite(Arrays.asList(arr)));
+		} else {
+			mav.addObject("keyWords", null);
+		}
+		mav.addObject("blog", blog);
+		blog.setClickHit(blog.getClickHit() + 1); // 博客点击次数加1
+		blogService.update(blog);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("bid", blog.getBid());
+		map.put("state", 1); // 查询审核通过的评论
+		mav.addObject("commentList", commentService.list(map));
+
+		mav.setViewName("blog");// 把数据在blog.jsp页面展示
 		return mav;
 	}
 

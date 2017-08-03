@@ -20,6 +20,7 @@
 <script type="text/javascript"
 	src="${APP_PATH}/static/js/modernizr-1.5.min.js"></script>
 
+
 </head>
 
 <body>
@@ -28,21 +29,22 @@
 		<jsp:include page="/common/menu.jsp" />
 
 		<div id="site_content">
-			<jsp:include page="/common/photo.jsp" />
+		<jsp:include page="/common/photo.jsp" /> 
 
-			<div id="content">
+		<div id="content"> 
 				<div id="blog_container">
 					<c:forEach var="selfBlogs" items="${selfBlogs.list }">
+				<a href="${APP_PATH}/blog/delete.do?bid=${selfBlogs.bid }"><img src="${APP_PATH}/static/images/delete.jpg" width="20" height="20" alt="删除" title="删除" ></a>
 						<h4 class="select">
-							<a href="#">${selfBlogs.title }</a>
+							<a href="${APP_PATH}/blog/selfBlog/articles/${selfBlogs.bid}.do">${selfBlogs.title }</a>
 						</h4>
 						<p>
-							${selfBlogs.summary } <a href="#">read more.....</a>
+							${selfBlogs.summary } <a href="${APP_PATH}/blog/selfBlog/articles/${selfBlogs.bid}.do">read more.....</a>
 						</p>
 
 					</c:forEach>
 
-				</div>
+			</div> 
 			</div>
 			<div class="row">
 				<div>当前第${selfBlogs.pageNum}页，总${selfBlogs.pages

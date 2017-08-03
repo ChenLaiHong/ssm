@@ -39,4 +39,10 @@ public class CommentService {
 
 	}
 
+	public int deleteByBid(int bid) {
+
+		return commentMapper.deleteByPrimaryKey(bid);
+
+	}
+
 }

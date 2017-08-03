@@ -44,7 +44,7 @@ public class PageController {
 			HttpSession httpSession, Model model) {
 		User user = (User) httpSession.getAttribute("currentUser");
 		String uname = user.getUname();
-		PageHelper.startPage(pn, 2);// 每页5条数据
+		PageHelper.startPage(pn, 2);// 每页2条数据
 
 		List<Blog> selfBlogs = blogService.getAll(uname);
 		PageInfo page = new PageInfo(selfBlogs, 2);

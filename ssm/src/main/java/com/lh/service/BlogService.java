@@ -69,4 +69,9 @@ public class BlogService {
 		return blogMapper.getTotal(map);
 	}
 
+	public int delete(int bid) {
+		return blogMapper.deleteByPrimaryKey(bid);
+
+	}
+
 }

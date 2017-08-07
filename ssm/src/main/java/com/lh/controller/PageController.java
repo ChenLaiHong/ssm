@@ -31,11 +31,11 @@ public class PageController {
 	@Autowired
 	LinkService linkService;
 
-	@RequestMapping("/blogs")
-	public String showPage() {
-		return "login";
+	// @RequestMapping("/blogs")
+	// public String showPage() {
+	// return "login";
 
-	}
+	// }
 
 	// 去用户主页面
 	@RequestMapping("/toMain")

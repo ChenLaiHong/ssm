@@ -140,7 +140,49 @@
 				$("#unametishi").css("color","red");
 				$("#unametishi").html('×该用户已存在!');
 				}			
-
+			}
+		});
+	});
+	$("#email").keyup(function() {
+		var u = this.value;
+		$.ajax({
+			url : '${APP_PATH}/zhuceyanzhengemail', //要请求的地址
+			//参数
+			data : "email="+u,
+			type : "POST",	
+			
+			success : function(data) {	
+					
+				if(data=="1"){
+				$("#emailtishi").css("color", "green");
+				$("#emailtishi").html('√该邮箱可以注册!');
+				}
+				if(data=="2"){
+				$("#emailtishi").css("color","red");
+				$("#emailtishi").html('×该邮箱已存在!');
+				}			
+			}
+		});
+	});
+	
+	$("#phone").keyup(function() {
+		var u = this.value;
+		$.ajax({
+			url : '${APP_PATH}/zhuceyanzhengephone', //要请求的地址
+			//参数
+			data : "phone="+u,
+			type : "POST",	
+			
+			success : function(data) {	
+					
+				if(data=="1"){
+				$("#phonetishi").css("color", "green");
+				$("#phonetishi").html('√该号码可以注册!');
+				}
+				if(data=="2"){
+				$("#phonetishi").css("color","red");
+				$("#phonetishi").html('×该号码已存在!');
+				}			
 			}
 		});
 	});

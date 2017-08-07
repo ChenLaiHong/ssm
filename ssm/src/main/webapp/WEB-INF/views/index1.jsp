@@ -79,7 +79,7 @@
 			<nav role="navigation">
 				<ul>
 					<c:if test="${currentUser.uname !=null}">
-						<li><a href="toMain?uname=${currentUser.uname }"><i class="icon-home"></i>
+						<li><a href="${APP_PATH}/toMain.do?uname=${currentUser.uname }"><i class="icon-home"></i>
 						</a>
 						</li>
 					</c:if>

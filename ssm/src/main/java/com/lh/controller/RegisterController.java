@@ -42,6 +42,30 @@ public class RegisterController {
 		}
 	}
 
+	// 判断邮箱是否存在数据库
+	@RequestMapping("/zhuceyanzhengemail")
+	@ResponseBody
+	public String zhuceyanzhengemail(@RequestParam("email") String email) {
+		boolean b = userService.selectemail(email);
+		if (b) {
+			return "1";
+		} else {
+			return "2";
+		}
+	}
+
+	// 判断手机号是否存在数据库
+	@RequestMapping("/zhuceyanzhengephone")
+	@ResponseBody
+	public String zhuceyanzhengephone(@RequestParam("phone") String phone) {
+		boolean b = userService.selectephone(phone);
+		if (b) {
+			return "1";
+		} else {
+			return "2";
+		}
+	}
+
 	// 手机验证码验证
 	@RequestMapping("/shoujiyanzhengma")
 	@ResponseBody

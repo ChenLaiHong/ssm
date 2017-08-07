@@ -79,4 +79,20 @@ public class UserService {
 		return userMapper.getTotal(map);
 	}
 
+	public boolean selectemail(String email) {
+		UserExample example = new UserExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andEmailEqualTo(email);
+		long count = userMapper.countByExample(example);
+		return count == 0;
+	}
+
+	public boolean selectephone(String phone) {
+		UserExample example = new UserExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andPhoneEqualTo(phone);
+		long count = userMapper.countByExample(example);
+		return count == 0;
+	}
+
 }

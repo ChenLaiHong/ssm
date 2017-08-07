@@ -1,7 +1,5 @@
 package com.lh.controller;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,20 +21,25 @@ public class LoginController {
 	// 前台 登陆页面的验证
 
 	@RequestMapping("/login")
-	public String Login(HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+	public String Login(HttpServletRequest request,
+			HttpServletResponse response, HttpSession httpSession)
+			throws Exception {
 
 		String uname = request.getParameter("uname");
 		String password = DigestUtils.md5Hex(request.getParameter("password"));
+		String validate = request.getParameter("Captcha");
 		User user = userService.findUserByName(uname);
-
 		if (user.getPassword().equals(password)
 				&& user.getUname().equals(uname)) {
-			request.getSession().setAttribute("currentUser", user);
-
-			return "redirect:/types";//
-			// 如果验证通过了就去indexController中执行types后去到index1页面也就是主页面
-
+			if (validate.equals((String) httpSession
+					.getAttribute("validateCode"))) {
+				request.getSession().setAttribute("currentUser", user);
+				return "redirect:/types";//
+				// 如果验证通过了就去indexController中执行types后去到index1页面也就是主页面
+			} else {
+				request.setAttribute("errorInfo", "验证码错误！");
+				return "login";
+			}
 		} else {
 
 			request.setAttribute("errorInfo", "用户名或密码错误！");

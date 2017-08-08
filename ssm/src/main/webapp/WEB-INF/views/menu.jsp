@@ -63,7 +63,7 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach var="keyWord" items="${keyWords }">
-						&nbsp;&nbsp;<a href="${APP_PATH}/blog/q.html?q=${keyWord}"
+						&nbsp;&nbsp;<a href="${APP_PATH}/q.do?q=${keyWord}"
 							target="_blank">${keyWord }</a>&nbsp;&nbsp;
 					</c:forEach>
 				</c:otherwise>

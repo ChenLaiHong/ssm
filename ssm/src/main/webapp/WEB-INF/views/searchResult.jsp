@@ -62,7 +62,7 @@ body {
 					  	  <li style="margin-bottom: 20px">
 						  	<span class="title"><a href="${APP_PATH}/blog/articles/${blog.bid}.do" target="_blank">${blog.title }</a></span>
 						  	<span class="summary">摘要: ${blog.content }...</span>
-						  	<span class="link"><a href="${APP_PATH}/blog/articles/${blog.bid}.do">http://localhost:8080/ssm/blog/articles/${blog.bid}.do</a>&nbsp;&nbsp;&nbsp;&nbsp;发布日期：${blog.releaseDateStr }</span>
+						  	<span class="link"><a href="${APP_PATH}/blog/articles/${blog.bid}.do">http://120.77.149.55:8080/ssm/blog/articles/${blog.bid}.do</a>&nbsp;&nbsp;&nbsp;&nbsp;发布日期：${blog.releaseDateStr }</span>
 						  </li>
 						</c:forEach>
 					</c:otherwise>

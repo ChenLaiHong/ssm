@@ -68,7 +68,7 @@
 							<font id="passwordtishi" color="red"></font>
 						</div>
 						<div class="form-group">
-							<label for="email" class="sr-only">邮箱</label>
+							<label for="email" class="sr-only">*邮箱</label>
 							<input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off">
 							<font id="emailtishi" color="red"></font>
 						</div>
@@ -82,10 +82,13 @@
 						</div>
 						<div class="form-group">
 							<label for="phone" class="sr-only">*手机号</label>
-							<input type="text" name="phone" id="phone" placeholder="请输入手机号码" /><font
-								id="phonetishi"></font><br> <input type="text" id="yanzhengma" name="yanzhengma"
-								placeholder="请输入验证码" /><input type="button" disabled="true" id="btn"
-								value="免费获取验证码" onclick="settime(this)" /><font id="yanzhengmatishi" color="red"></font>
+							<input type="text" name="phone" id="phone" placeholder="请输入手机号码" />
+							<font id="phonetishi"></font><br>
+								<input type="text" id="yanzhengma" name="yanzhengma"
+								placeholder="请输入验证码" />
+								<input type="button" disabled="true" id="btn"
+								value="免费获取验证码" onclick="settime(this)" />
+								<font id="yanzhengmatishi" color="red"></font>
 						</div>
 						
 						
@@ -95,6 +98,7 @@
 						<div class="form-group">
 							<input type="submit" value="注册" class="btn btn-primary" >
 							<font color="red" id="xxx"></font>
+							<span><font color="red" id="error">${error }</font></span>
 						</div>
 					</form>
 					<!-- END Sign In Form -->
@@ -268,18 +272,24 @@
 			obj.setAttribute("disabled", true);
 			obj.value = "重新发送(" + countdown + ")";
 			countdown--;
+			if(countdown == 0){
+			 session.removeAttribute("mobile_code");
+			}
 		}
 		setTimeout(function() {
-			settime(obj)
-		}, 1000)
+			settime(obj);
+		}, 1000);
 	}
 	
 	function zhucecaozuo(){
-		if($('#unametishi').html()=="√该用户可以注册!" && $('#passwordtishi').html()=="√密码验证通过!" && $('#yanzhengmatishi').html()=="√验证码正确!"){
+		if($('#unametishi').html()=="√该用户可以注册!" && $('#passwordtishi').html()=="√密码验证通过!" && $('#emailtishi').html()=="√该邮箱可以注册!" && $('#yanzhengmatishi').html()=="√验证码正确!"){
 			return true;
+		}else{
+		  $("#xxx").html("有验证没通过！");
+		   return false;
+		   
 		}
-		$("#xxx").html('有验证没通过！');
-		return false;
+		
 	}
 
 </script>

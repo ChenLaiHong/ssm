@@ -229,7 +229,7 @@
    		<th field="id" width="20" align="center">编号</th>
    		<th field="linkName" width="200" align="center">友情链接名称</th>
    		<th field="linkUrl" width="200" align="center">友情链接地址</th>
-   		<th field="orderNo" width="100" align="center">排序序号</th>
+   		
    	</tr>
    </thead>
  </table>
@@ -265,10 +265,7 @@
    			<td>友情链接地址：</td>
    			<td><input type="text" id="linkUrl" name="linkUrl" class="easyui-validatebox" validtype="url" required="true" style="width: 250px"/></td>
    		</tr>
-   		<tr>
-   			<td>友情链接排序：</td>
-   			<td><input type="text" id="orderNo" name="orderNo" class="easyui-numberbox" required="true" style="width: 60px"/>&nbsp;(友情链接根据排序序号从小到大排序)</td>
-   		</tr>
+   		
    	</table>
    </form>
  </div>

@@ -3,6 +3,7 @@ package com.lh.controller;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.httpclient.HttpClient;
@@ -69,7 +70,8 @@ public class RegisterController {
 	// 手机验证码验证
 	@RequestMapping("/shoujiyanzhengma")
 	@ResponseBody
-	public String shoujiyanzhengma(@RequestParam(value = "phone") String phone) {
+	public String shoujiyanzhengma(@RequestParam(value = "phone") String phone,
+			HttpServletRequest request, HttpSession session) {
 
 		HttpClient client = new HttpClient();
 		PostMethod method = new PostMethod(Url);
@@ -80,6 +82,7 @@ public class RegisterController {
 
 		int mobile_code = (int) ((Math.random() * 9 + 1) * 100000);
 
+		session.setAttribute("mobile_code", mobile_code);
 		String content = new String("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。");
 
 		NameValuePair[] data = {// 提交短信
@@ -127,15 +130,27 @@ public class RegisterController {
 		}
 
 		return mobile_code + "";
+
 	}
 
 	// 注册操作
 	@RequestMapping("/zhucecaozuo")
-	public String zhucecaozuo(HttpServletRequest request, User user) {
-		user.setPassword(DigestUtils.md5Hex(user.getPassword()));
-		userService.insertuser(user);
-		// request.setAttribute("msg", "注册成功！");
-		return "login";
+	public String zhucecaozuo(HttpServletRequest request, User user,
+			HttpSession session) {
+		String yanzhengma = request.getParameter("yanzhengma");
+		if (user.getUname().length() > 0 && user.getPassword().length() > 0
+				&& user.getEmail().length() > 0 && user.getPhone().length() > 0
+				&& yanzhengma.length() == 6) {
+
+			user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+			userService.insertuser(user);
+
+			return "login";
+
+		} else {
+			request.setAttribute("error", "有验证没通过！");
+			return "register";
+		}
 	}
 
 }

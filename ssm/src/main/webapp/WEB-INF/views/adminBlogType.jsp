@@ -126,7 +126,7 @@
 				<th field="typeName" width="20" align="center">博客类型名称</th>
 				<th field="describes" width="50" align="center">类别描述</th>
 				<th field="imageName" width="20" align="center" data-options="formatter:formatImg">图片</th>
-				<th field="orderNo" width="20" align="center">排序序号</th>
+				
 			</tr>
 		</thead>
 	</table>
@@ -142,7 +142,7 @@
 	</div>
 
 	<div id="dlg" class="easyui-dialog"
-		style="width:500px;height:180px;padding: 10px 20px" closed="true"
+		style="width:500px;height:280px;padding: 10px 20px" closed="true"
 		buttons="#dlg-buttons">
 
 		<form id="fm" method="post" enctype="multipart/form-data">
@@ -155,21 +155,17 @@
 				</tr>
 				<tr>
 					<td>类别描述：</td>
-					<td><input type="text" id="describes" name="describes"
-						class="easyui-validatebox" required="true" />
+					<td>
+						<textarea id="describes" name="describes" required="true" style="height:60px;width:200px"></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td>图片：</td>
 					<td><input type="file" id="imageFile" name="imageFile"
-						class="easyui-validatebox" required="true" />
+						class="easyui-validatebox" />
 					</td>
 				</tr>
-				<tr>
-   			       <td>友情链接排序：</td>
-   			       <td><input type="text" id="orderNo" name="orderNo" 
-   			       class="easyui-numberbox" required="true" style="width: 60px"/>&nbsp;(类型根据排序序号从小到大排序)</td>
-   		       </tr>
+				
 			</table>
 		</form>
 	</div>

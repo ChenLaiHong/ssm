@@ -47,8 +47,8 @@ public class BlogIndex {
 	 * @throws Exception
 	 */
 	private IndexWriter getWriter() throws Exception {
-		dir = FSDirectory.open(Paths.get("C://lucene"));
-		SmartChineseAnalyzer analyzer = new SmartChineseAnalyzer();
+		dir = FSDirectory.open(Paths.get("C://lucene"));// 把索引放到c盘
+		SmartChineseAnalyzer analyzer = new SmartChineseAnalyzer();// 中文分词器
 		IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
 		IndexWriter writer = new IndexWriter(dir, iwc);
 		return writer;
@@ -117,7 +117,8 @@ public class BlogIndex {
 	 * @throws Exception
 	 */
 	public List<Blog> searchBlog(String q) throws Exception {
-		dir = FSDirectory.open(Paths.get("C://lucene"));
+		// dir = FSDirectory.open(Paths.get("C://lucene")); //这个在本地时打开用
+		dir = FSDirectory.open(Paths.get("/lucene")); // 在Linux服务器用
 		IndexReader reader = DirectoryReader.open(dir);
 		IndexSearcher is = new IndexSearcher(reader);
 		BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();
@@ -129,10 +130,10 @@ public class BlogIndex {
 		booleanQuery.add(query, BooleanClause.Occur.SHOULD);
 		booleanQuery.add(query2, BooleanClause.Occur.SHOULD);
 		TopDocs hits = is.search(booleanQuery.build(), 100);
-		QueryScorer scorer = new QueryScorer(query);
+		QueryScorer scorer = new QueryScorer(query);// 把得分高的片段显示出来
 		Fragmenter fragmenter = new SimpleSpanFragmenter(scorer);
 		SimpleHTMLFormatter simpleHTMLFormatter = new SimpleHTMLFormatter(
-				"<b><font color='red'>", "</font></b>");
+				"<b><font color='red'>", "</font></b>");// 把搜索的词变成红色
 		Highlighter highlighter = new Highlighter(simpleHTMLFormatter, scorer);
 		highlighter.setTextFragmenter(fragmenter);
 		List<Blog> blogList = new LinkedList<Blog>();
@@ -144,6 +145,7 @@ public class BlogIndex {
 			String title = doc.get("title");
 			String content = StringEscapeUtils.escapeHtml(doc.get("content"));
 			if (title != null) {
+				// 把最佳片段的摘要显示出来
 				TokenStream tokenStream = analyzer.tokenStream("title",
 						new StringReader(title));
 				String hTitle = highlighter.getBestFragment(tokenStream, title);
